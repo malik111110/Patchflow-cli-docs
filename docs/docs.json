@@ -1,0 +1,252 @@
+{
+  "$schema": "https://mintlify.com/docs.json",
+  "theme": "mint",
+  "name": "PatchFlow CLI",
+  "description": "PatchFlow CLI is a local-first security scanner for modern engineering teams. It performs Software Composition Analysis (SCA), Static Application Security Testing (SAST), secret detection, reachability analysis, and framework-aware rule packs — all without a backend connection.",
+  "colors": {
+    "primary": "#2563eb",
+    "light": "#3b82f6",
+    "dark": "#1d4ed8"
+  },
+  "appearance": {
+    "default": "system",
+    "strict": false
+  },
+  "icons": {
+    "library": "lucide"
+  },
+  "styling": {
+    "eyebrows": "section",
+    "codeblocks": "system"
+  },
+  "background": {
+    "decoration": "gradient"
+  },
+  "metadata": {
+    "timestamp": true
+  },
+  "search": {
+    "prompt": "Search PatchFlow CLI docs..."
+  },
+  "contextual": {
+    "display": "header",
+    "options": [
+      "assistant",
+      "copy",
+      "view",
+      "chatgpt",
+      "claude",
+      "perplexity",
+      "cursor",
+      "vscode",
+      "devin"
+    ]
+  },
+  "navbar": {
+    "links": [
+      {
+        "type": "github",
+        "href": "https://github.com/Patchflow-security/patchflow-cli"
+      }
+    ],
+    "primary": {
+      "type": "github",
+      "href": "https://github.com/Patchflow-security/patchflow-cli"
+    }
+  },
+  "footer": {
+    "socials": {
+      "github": "https://github.com/Patchflow-security/patchflow-cli"
+    },
+    "links": [
+      {
+        "header": "Documentation",
+        "items": [
+          {
+            "label": "Getting Started",
+            "href": "https://github.com/Patchflow-security/patchflow-cli-docs/blob/main/docs/getting-started/installation.md"
+          },
+          {
+            "label": "User Guides",
+            "href": "https://github.com/Patchflow-security/patchflow-cli-docs/blob/main/docs/user-guides/scan.md"
+          },
+          {
+            "label": "Reference",
+            "href": "https://github.com/Patchflow-security/patchflow-cli-docs/blob/main/docs/reference/commands.md"
+          }
+        ]
+      },
+      {
+        "header": "Developers",
+        "items": [
+          {
+            "label": "Architecture",
+            "href": "https://github.com/Patchflow-security/patchflow-cli-docs/blob/main/docs/developers/architecture.md"
+          },
+          {
+            "label": "Framework Packs",
+            "href": "https://github.com/Patchflow-security/patchflow-cli-docs/blob/main/docs/developers/rule-packs.md"
+          },
+          {
+            "label": "Benchmarks",
+            "href": "https://github.com/Patchflow-security/patchflow-cli-docs/blob/main/docs/developers/benchmarks.md"
+          }
+        ]
+      },
+      {
+        "header": "Integrations",
+        "items": [
+          {
+            "label": "GitHub Actions",
+            "href": "https://github.com/Patchflow-security/patchflow-cli-docs/blob/main/docs/integrations/github-actions.md"
+          },
+          {
+            "label": "GitLab CI",
+            "href": "https://github.com/Patchflow-security/patchflow-cli-docs/blob/main/docs/integrations/gitlab.md"
+          },
+          {
+            "label": "SARIF Uploads",
+            "href": "https://github.com/Patchflow-security/patchflow-cli-docs/blob/main/docs/integrations/sarif.md"
+          }
+        ]
+      },
+      {
+        "header": "Resources",
+        "items": [
+          {
+            "label": "GitHub Repository",
+            "href": "https://github.com/Patchflow-security/patchflow-cli"
+          },
+          {
+            "label": "Report an Issue",
+            "href": "https://github.com/Patchflow-security/patchflow-cli/issues"
+          }
+        ]
+      }
+    ]
+  },
+  "errors": {
+    "404": {
+      "redirect": true,
+      "title": "Page not found",
+      "description": "The page you're looking for doesn't exist. Use the search bar above or go back to the [home page](/)."
+    }
+  },
+  "seo": {
+    "indexing": "navigable",
+    "metatags": {
+      "og:type": "website",
+      "og:site_name": "PatchFlow CLI Documentation"
+    }
+  },
+  "navigation": {
+    "tabs": [
+      {
+        "tab": "Documentation",
+        "icon": "book-open",
+        "pages": [
+          "index",
+          {
+            "group": "Getting Started",
+            "icon": "rocket",
+            "pages": [
+              "getting-started/installation",
+              "getting-started/quickstart",
+              "getting-started/concepts"
+            ]
+          },
+          {
+            "group": "User Guides",
+            "icon": "book",
+            "pages": [
+              "user-guides/scan",
+              "user-guides/dependencies",
+              "user-guides/reachability",
+              "user-guides/framework-packs",
+              "user-guides/custom-rules",
+              "user-guides/reports",
+              "user-guides/baselines",
+              "user-guides/pr-review",
+              "user-guides/fixes",
+              "user-guides/explain",
+              "user-guides/suppressions",
+              "user-guides/container-scanning",
+              "user-guides/configuration",
+              "user-guides/authentication",
+              "user-guides/cache"
+            ]
+          },
+          {
+            "group": "Workflows",
+            "icon": "workflow",
+            "pages": [
+              "workflows/recommended",
+              "workflows/ci-adoption"
+            ]
+          },
+          {
+            "group": "Integrations",
+            "icon": "plug",
+            "pages": [
+              "integrations/github-actions",
+              "integrations/gitlab",
+              "integrations/sarif",
+              "integrations/pre-commit",
+              "integrations/jenkins",
+              "integrations/azure-devops"
+            ]
+          }
+        ]
+      },
+      {
+        "tab": "Developers",
+        "icon": "code",
+        "pages": [
+          {
+            "group": "Developer Guide",
+            "icon": "terminal",
+            "pages": [
+              "developers/overview",
+              "developers/architecture",
+              "developers/rule-packs",
+              "developers/adding-packs",
+              "developers/ci-cd",
+              "developers/benchmarks"
+            ]
+          }
+        ]
+      },
+      {
+        "tab": "Reference",
+        "icon": "square-library",
+        "pages": [
+          {
+            "group": "Command Reference",
+            "icon": "square-terminal",
+            "pages": [
+              "reference/commands",
+              "reference/generated-commands",
+              "reference/global-flags"
+            ]
+          },
+          {
+            "group": "Configuration",
+            "icon": "settings",
+            "pages": [
+              "reference/configuration",
+              "reference/yaml-policy"
+            ]
+          },
+          {
+            "group": "Rules & Scanners",
+            "icon": "shield",
+            "pages": [
+              "reference/rules-governance",
+              "reference/scanners"
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}
