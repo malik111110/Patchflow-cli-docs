@@ -1,43 +1,87 @@
-# PatchFlow CLI Docs
+# PatchFlow CLI Documentation
 
-Documentation website project for PatchFlow CLI.
+Documentation for the [PatchFlow CLI](https://github.com/Patchflow-security/patchflow-cli) —
+a local-first security scanner for modern engineering teams.
 
-## Local Development
+## Structure
 
-```bash
-npm install
-npm run dev
+This repository contains structured Markdown documentation only. No build
+system or static site generator is required — all documentation is plain
+Markdown that can be read directly on GitHub or in any Markdown viewer.
+
+```text
+docs/
+├── index.md                      Home page and overview
+├── getting-started/
+│   ├── installation.md           Installation methods
+│   ├── quickstart.md             First scan, report, and baseline
+│   └── concepts.md               Core concepts (SCA, SAST, reachability, risk)
+├── user-guides/
+│   ├── scan.md                   Scan command reference
+│   ├── dependencies.md           deps command
+│   ├── reachability.md           Reachability analysis
+│   ├── framework-packs.md        Framework rule packs
+│   ├── custom-rules.md           Custom rules and YAML
+│   ├── reports.md                Report generation
+│   ├── baselines.md              Baseline management
+│   ├── pr-review.md              PR risk review
+│   ├── fixes.md                  Fix generation and application
+│   ├── explain.md                Finding explanation
+│   ├── suppressions.md           Suppression directives
+│   ├── container-scanning.md     Container image scanning
+│   ├── configuration.md          Configuration and profiles
+│   ├── authentication.md         Authentication and tokens
+│   └── cache.md                  Cache management and offline mode
+├── workflows/
+│   ├── recommended.md            Recommended team workflow
+│   └── ci-adoption.md            CI adoption strategy
+├── integrations/
+│   ├── github-actions.md         GitHub Actions integration
+│   ├── gitlab.md                 GitLab CI integration
+│   ├── sarif.md                  SARIF uploads
+│   ├── pre-commit.md             pre-commit hook
+│   ├── jenkins.md                Jenkins integration
+│   └── azure-devops.md           Azure DevOps integration
+├── developers/
+│   ├── overview.md               Developer overview and packages
+│   ├── architecture.md           Internal architecture
+│   ├── rule-packs.md             Framework pack development
+│   ├── adding-packs.md           Step-by-step pack creation
+│   ├── ci-cd.md                  CI for the CLI
+│   └── benchmarks.md             Benchmark suite
+└── reference/
+    ├── commands.md               Curated command map
+    ├── generated-commands.md     Full command help output
+    ├── global-flags.md           Global CLI flags
+    ├── configuration.md          Config file reference
+    ├── yaml-policy.md            YAML policy format
+    ├── rules-governance.md       Rule governance reference
+    └── scanners.md               Scanner reference
 ```
 
-The dev server serves the VitePress site from `docs/`.
+## Regenerating the Command Reference
 
-## Build
-
-```bash
-npm run check
-npm run build
-```
-
-`npm run build` regenerates the CLI command reference before producing the
-static site in `docs/.vitepress/dist`.
-
-## Source Sync
-
-This docs repo contains curated product docs. It can also import source
-reference documents from the CLI repo:
+The `reference/generated-commands.md` file is auto-generated from the CLI
+binary's help output. To regenerate it after changing CLI commands:
 
 ```bash
-PATCHFLOW_CLI_REPO=/Users/digitalcenter/patchflow-cli npm run sync:cli
+cd /Users/digitalcenter/patchflow-cli
+go build -o patchflow .
+
+# Run the generation script
+bash /path/to/gen_cmds.sh
 ```
 
-Command reference generation uses the local CLI binary:
+The generation script runs `patchflow <command> --help` for every command and
+subcommand, collecting the output into a single Markdown file.
 
-```bash
-PATCHFLOW_BIN=/Users/digitalcenter/patchflow-cli/patchflow npm run generate:commands
-```
+## Contributing
 
-## Deploy
+1. Edit the relevant Markdown file(s) in `docs/`.
+2. If CLI commands changed, regenerate `reference/generated-commands.md`.
+3. Verify all internal links point to existing files.
+4. Submit a pull request.
 
-The included GitHub Actions workflow builds the site and uploads the static
-artifact. Wire it to GitHub Pages, Netlify, Cloudflare Pages, or any static
-host.
+## License
+
+See the PatchFlow CLI repository for license information.

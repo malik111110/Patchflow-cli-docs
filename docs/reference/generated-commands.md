@@ -1,8 +1,15 @@
 # Generated Command Reference
 
-Generated from `/Users/digitalcenter/patchflow-cli/patchflow`.
+Generated from `patchflow --help` output. Run this after changing CLI commands:
 
-Run `npm run generate:commands` after changing CLI commands.
+```bash
+cd /Users/digitalcenter/patchflow-cli
+go build -o patchflow .
+# then run the generation script
+```
+
+This page is auto-generated from the CLI binary's help output. For curated
+documentation, see [Commands](./commands.md).
 
 ## `patchflow`
 
@@ -210,6 +217,48 @@ Global Flags:
   -v, --verbose            enable verbose logging
 ```
 
+## `patchflow scan local`
+
+```text
+Scan the local repository
+
+Usage:
+  patchflow scan local [flags]
+
+Flags:
+  -h, --help   help for local
+
+Global Flags:
+      --api-url string     PatchFlow API URL
+      --cache-dir string   Override cache directory (default: ~/.cache/patchflow/ or $XDG_CACHE_HOME/patchflow/)
+      --config string      config file path
+      --json               output in JSON format
+      --no-color           disable colored output
+  -q, --quiet              suppress non-essential output (for CI scripting)
+  -v, --verbose            enable verbose logging
+```
+
+## `patchflow scan changed`
+
+```text
+Scan changed files
+
+Usage:
+  patchflow scan changed [flags]
+
+Flags:
+  -h, --help   help for changed
+
+Global Flags:
+      --api-url string     PatchFlow API URL
+      --cache-dir string   Override cache directory (default: ~/.cache/patchflow/ or $XDG_CACHE_HOME/patchflow/)
+      --config string      config file path
+      --json               output in JSON format
+      --no-color           disable colored output
+  -q, --quiet              suppress non-essential output (for CI scripting)
+  -v, --verbose            enable verbose logging
+```
+
 ## `patchflow scan export`
 
 ```text
@@ -227,6 +276,416 @@ Flags:
       --no-gitignore    Do not respect .gitignore patterns (scan all files)
       --output string   Output file path (stdout if omitted)
       --upload-github   Upload SARIF to GitHub Code Scanning (requires --format sarif and GITHUB_TOKEN)
+
+Global Flags:
+      --api-url string     PatchFlow API URL
+      --cache-dir string   Override cache directory (default: ~/.cache/patchflow/ or $XDG_CACHE_HOME/patchflow/)
+      --config string      config file path
+      --json               output in JSON format
+      --no-color           disable colored output
+  -q, --quiet              suppress non-essential output (for CI scripting)
+  -v, --verbose            enable verbose logging
+```
+
+## `patchflow scan image`
+
+```text
+Scan a container image for OS package vulnerabilities, language dependency
+vulnerabilities, and misconfigurations.
+
+This command uses Trivy as an external analyzer. Trivy must be installed
+and available in PATH.
+
+Supported formats: json, markdown.
+
+Examples:
+  patchflow scan image nginx:1.21
+  patchflow scan image myapp:latest --format json --output report.json
+  patchflow scan image alpine:3.18 --timeout 5m --severities CRITICAL,HIGH
+
+Usage:
+  patchflow scan image [IMAGE] [flags]
+
+Flags:
+      --format string       Output format: json, markdown
+  -h, --help                help for image
+      --output string       Write report to file (stdout if omitted)
+      --severities string   Comma-separated severities to include (CRITICAL,HIGH,MEDIUM,LOW,INFO)
+      --timeout duration    Scan timeout (default 10m0s)
+
+Global Flags:
+      --api-url string     PatchFlow API URL
+      --cache-dir string   Override cache directory (default: ~/.cache/patchflow/ or $XDG_CACHE_HOME/patchflow/)
+      --config string      config file path
+      --json               output in JSON format
+      --no-color           disable colored output
+  -q, --quiet              suppress non-essential output (for CI scripting)
+  -v, --verbose            enable verbose logging
+```
+
+## `patchflow scan baseline`
+
+```text
+Create and compare finding baselines to reduce CI noise.
+
+A baseline stores a snapshot of known findings. Subsequent scans can compare
+against the baseline to only report NEW findings, dramatically reducing
+CI noise on existing codebases.
+
+Baselines are stored in .patchflow/baselines/ as JSON files.
+
+Prefer the top-level 'patchflow baseline' command for new scripts:
+  patchflow baseline create --name v1.0
+  patchflow baseline diff --from v1.0
+
+Legacy usage:
+  patchflow scan baseline create v1.0
+  patchflow scan baseline compare v1.0
+  patchflow scan baseline list
+  patchflow scan baseline delete v1.0
+
+Usage:
+  patchflow scan baseline [command]
+
+Available Commands:
+  compare     Compare current scan findings against a baseline
+  create      Create a baseline from current scan findings
+  delete      Delete a saved baseline
+  list        List all saved baselines
+
+Flags:
+  -h, --help   help for baseline
+
+Global Flags:
+      --api-url string     PatchFlow API URL
+      --cache-dir string   Override cache directory (default: ~/.cache/patchflow/ or $XDG_CACHE_HOME/patchflow/)
+      --config string      config file path
+      --json               output in JSON format
+      --no-color           disable colored output
+  -q, --quiet              suppress non-essential output (for CI scripting)
+  -v, --verbose            enable verbose logging
+
+Use "patchflow scan baseline [command] --help" for more information about a command.
+```
+
+## `patchflow deps`
+
+```text
+Analyze project dependencies: list, diff against a base branch, find vulnerable packages, or check licenses.
+
+Usage:
+  patchflow deps [command]
+
+Available Commands:
+  diff        Show dependency changes against base branch
+  licenses    Check dependency licenses and classify by risk
+  list        List all dependencies
+  tree        Show dependency tree by ecosystem
+  vulnerable  List vulnerable dependencies
+
+Flags:
+  -h, --help   help for deps
+
+Global Flags:
+      --api-url string     PatchFlow API URL
+      --cache-dir string   Override cache directory (default: ~/.cache/patchflow/ or $XDG_CACHE_HOME/patchflow/)
+      --config string      config file path
+      --json               output in JSON format
+      --no-color           disable colored output
+  -q, --quiet              suppress non-essential output (for CI scripting)
+  -v, --verbose            enable verbose logging
+
+Use "patchflow deps [command] --help" for more information about a command.
+```
+
+## `patchflow deps list`
+
+```text
+List all dependencies
+
+Usage:
+  patchflow deps list [flags]
+
+Flags:
+  -h, --help   help for list
+
+Global Flags:
+      --api-url string     PatchFlow API URL
+      --cache-dir string   Override cache directory (default: ~/.cache/patchflow/ or $XDG_CACHE_HOME/patchflow/)
+      --config string      config file path
+      --json               output in JSON format
+      --no-color           disable colored output
+  -q, --quiet              suppress non-essential output (for CI scripting)
+  -v, --verbose            enable verbose logging
+```
+
+## `patchflow deps vulnerable`
+
+```text
+List vulnerable dependencies
+
+Usage:
+  patchflow deps vulnerable [flags]
+
+Flags:
+  -h, --help   help for vulnerable
+
+Global Flags:
+      --api-url string     PatchFlow API URL
+      --cache-dir string   Override cache directory (default: ~/.cache/patchflow/ or $XDG_CACHE_HOME/patchflow/)
+      --config string      config file path
+      --json               output in JSON format
+      --no-color           disable colored output
+  -q, --quiet              suppress non-essential output (for CI scripting)
+  -v, --verbose            enable verbose logging
+```
+
+## `patchflow deps diff`
+
+```text
+Show dependency changes against base branch
+
+Usage:
+  patchflow deps diff [flags]
+
+Flags:
+  -h, --help   help for diff
+
+Global Flags:
+      --api-url string     PatchFlow API URL
+      --cache-dir string   Override cache directory (default: ~/.cache/patchflow/ or $XDG_CACHE_HOME/patchflow/)
+      --config string      config file path
+      --json               output in JSON format
+      --no-color           disable colored output
+  -q, --quiet              suppress non-essential output (for CI scripting)
+  -v, --verbose            enable verbose logging
+```
+
+## `patchflow deps tree`
+
+```text
+Show dependency tree by ecosystem
+
+Usage:
+  patchflow deps tree [flags]
+
+Flags:
+  -h, --help   help for tree
+
+Global Flags:
+      --api-url string     PatchFlow API URL
+      --cache-dir string   Override cache directory (default: ~/.cache/patchflow/ or $XDG_CACHE_HOME/patchflow/)
+      --config string      config file path
+      --json               output in JSON format
+      --no-color           disable colored output
+  -q, --quiet              suppress non-essential output (for CI scripting)
+  -v, --verbose            enable verbose logging
+```
+
+## `patchflow deps licenses`
+
+```text
+Extract and classify license information from project dependencies.
+Licenses are categorized as permissive, weak copyleft, copyleft, proprietary, or unknown,
+with risk levels (low, medium, high, critical) for policy enforcement.
+
+Usage:
+  patchflow deps licenses [flags]
+
+Flags:
+  -h, --help   help for licenses
+
+Global Flags:
+      --api-url string     PatchFlow API URL
+      --cache-dir string   Override cache directory (default: ~/.cache/patchflow/ or $XDG_CACHE_HOME/patchflow/)
+      --config string      config file path
+      --json               output in JSON format
+      --no-color           disable colored output
+  -q, --quiet              suppress non-essential output (for CI scripting)
+  -v, --verbose            enable verbose logging
+```
+
+## `patchflow reachability`
+
+```text
+Determine whether a vulnerable dependency is reachable — i.e., actually
+imported and used in the codebase. This helps prioritize which vulnerabilities
+to fix first.
+
+Reachability confidence levels:
+  HIGH       directly imported or invoked
+  MEDIUM     direct dependency, possible runtime usage
+  LOW        transitive dependency, no direct usage found
+  NONE       not present in dependency graph
+  UNKNOWN    analysis incomplete
+
+Usage:
+  patchflow reachability [flags]
+
+Flags:
+      --cve string       Check reachability for a specific CVE (finds the package first)
+      --explain          Show evidence for the reachability assessment
+  -h, --help             help for reachability
+      --package string   Check reachability for a specific package
+
+Global Flags:
+      --api-url string     PatchFlow API URL
+      --cache-dir string   Override cache directory (default: ~/.cache/patchflow/ or $XDG_CACHE_HOME/patchflow/)
+      --config string      config file path
+      --json               output in JSON format
+      --no-color           disable colored output
+  -q, --quiet              suppress non-essential output (for CI scripting)
+  -v, --verbose            enable verbose logging
+```
+
+## `patchflow report`
+
+```text
+Run a full analysis and generate a report in the specified format.
+Supported formats: markdown, json, sarif.
+
+The report includes all findings (SCA, SAST, secrets), dependency list,
+risk score breakdown, and recommendations.
+
+Usage:
+  patchflow report [flags]
+
+Flags:
+      --format string   Report format: markdown, json, sarif (default "markdown")
+  -h, --help            help for report
+      --output string   Output file path (stdout if omitted)
+
+Global Flags:
+      --api-url string     PatchFlow API URL
+      --cache-dir string   Override cache directory (default: ~/.cache/patchflow/ or $XDG_CACHE_HOME/patchflow/)
+      --config string      config file path
+      --json               output in JSON format
+      --no-color           disable colored output
+  -q, --quiet              suppress non-essential output (for CI scripting)
+  -v, --verbose            enable verbose logging
+```
+
+## `patchflow baseline`
+
+```text
+Create, compare, and manage finding baselines to reduce CI noise.
+
+A baseline stores a snapshot of known findings. Subsequent scans can compare
+against the baseline to only report NEW findings, dramatically reducing
+CI noise on existing codebases.
+
+Baselines are stored under .patchflow/baselines/<name>.json and compared
+using stable semantic fingerprints (rule id + scanner + normalized path +
+normalized snippet) so that findings survive line-number shifts from
+unrelated edits.
+
+Examples:
+  patchflow baseline create --name v1.0
+  patchflow baseline list
+  patchflow baseline diff --from v1.0
+  patchflow baseline delete --name v1.0
+  patchflow scan run --new-only --baseline v1.0
+
+Usage:
+  patchflow baseline [command]
+
+Available Commands:
+  create      Create a baseline from current scan findings
+  delete      Delete a saved baseline
+  diff        Diff current scan findings against a baseline
+  list        List all saved baselines
+
+Flags:
+  -h, --help   help for baseline
+
+Global Flags:
+      --api-url string     PatchFlow API URL
+      --cache-dir string   Override cache directory (default: ~/.cache/patchflow/ or $XDG_CACHE_HOME/patchflow/)
+      --config string      config file path
+      --json               output in JSON format
+      --no-color           disable colored output
+  -q, --quiet              suppress non-essential output (for CI scripting)
+  -v, --verbose            enable verbose logging
+
+Use "patchflow baseline [command] --help" for more information about a command.
+```
+
+## `patchflow baseline create`
+
+```text
+Run a full SAST scan and store the findings as a named baseline.
+
+Usage:
+  patchflow baseline create [flags]
+
+Flags:
+  -h, --help          help for create
+      --name string   Name of the baseline to create (required)
+
+Global Flags:
+      --api-url string     PatchFlow API URL
+      --cache-dir string   Override cache directory (default: ~/.cache/patchflow/ or $XDG_CACHE_HOME/patchflow/)
+      --config string      config file path
+      --json               output in JSON format
+      --no-color           disable colored output
+  -q, --quiet              suppress non-essential output (for CI scripting)
+  -v, --verbose            enable verbose logging
+```
+
+## `patchflow baseline list`
+
+```text
+List all saved baselines
+
+Usage:
+  patchflow baseline list [flags]
+
+Flags:
+  -h, --help   help for list
+
+Global Flags:
+      --api-url string     PatchFlow API URL
+      --cache-dir string   Override cache directory (default: ~/.cache/patchflow/ or $XDG_CACHE_HOME/patchflow/)
+      --config string      config file path
+      --json               output in JSON format
+      --no-color           disable colored output
+  -q, --quiet              suppress non-essential output (for CI scripting)
+  -v, --verbose            enable verbose logging
+```
+
+## `patchflow baseline diff`
+
+```text
+Run a full SAST scan and report new, resolved, and unchanged findings relative to the named baseline.
+
+Usage:
+  patchflow baseline diff [flags]
+
+Flags:
+      --from string   Baseline name to diff against (required)
+  -h, --help          help for diff
+
+Global Flags:
+      --api-url string     PatchFlow API URL
+      --cache-dir string   Override cache directory (default: ~/.cache/patchflow/ or $XDG_CACHE_HOME/patchflow/)
+      --config string      config file path
+      --json               output in JSON format
+      --no-color           disable colored output
+  -q, --quiet              suppress non-essential output (for CI scripting)
+  -v, --verbose            enable verbose logging
+```
+
+## `patchflow baseline delete`
+
+```text
+Delete a saved baseline
+
+Usage:
+  patchflow baseline delete [flags]
+
+Flags:
+  -h, --help          help for delete
+      --name string   Name of the baseline to delete (required)
 
 Global Flags:
       --api-url string     PatchFlow API URL
@@ -331,6 +790,38 @@ Global Flags:
   -v, --verbose            enable verbose logging
 ```
 
+## `patchflow rules maturity`
+
+```text
+Show a governance coverage report for all registered rules.
+
+The report includes:
+  - Maturity level distribution (experimental, beta, stable, enterprise)
+  - Blocking-eligible vs excluded rule counts
+  - CWE and OWASP mapping coverage
+  - Profile activation counts (dev, pr, ci, audit)
+  - Per-engine rule counts
+
+Use --json for machine-readable output.
+Use --all to list every rule with its maturity, CWE, and blocking status.
+
+Usage:
+  patchflow rules maturity [flags]
+
+Flags:
+      --all    List every rule with maturity and CWE
+  -h, --help   help for maturity
+      --json   Output in JSON format
+
+Global Flags:
+      --api-url string     PatchFlow API URL
+      --cache-dir string   Override cache directory (default: ~/.cache/patchflow/ or $XDG_CACHE_HOME/patchflow/)
+      --config string      config file path
+      --no-color           disable colored output
+  -q, --quiet              suppress non-essential output (for CI scripting)
+  -v, --verbose            enable verbose logging
+```
+
 ## `patchflow rules validate`
 
 ```text
@@ -355,6 +846,40 @@ Usage:
 
 Flags:
   -h, --help   help for validate
+
+Global Flags:
+      --api-url string     PatchFlow API URL
+      --cache-dir string   Override cache directory (default: ~/.cache/patchflow/ or $XDG_CACHE_HOME/patchflow/)
+      --config string      config file path
+      --json               output in JSON format
+      --no-color           disable colored output
+  -q, --quiet              suppress non-essential output (for CI scripting)
+  -v, --verbose            enable verbose logging
+```
+
+## `patchflow rules docs`
+
+```text
+Generate documentation for all registered rules.
+
+Outputs a Markdown document with one section per rule, including:
+  - Rule ID, title, severity, confidence
+  - Maturity level and blocking eligibility
+  - CWE and OWASP mapping
+  - Security category
+  - Fix recommendation
+  - Active scan profiles
+
+Use --output <file> to write to a file (stdout if omitted).
+Use --engine <name> to filter to a specific engine.
+
+Usage:
+  patchflow rules docs [flags]
+
+Flags:
+      --engine string   Filter to a specific engine
+  -h, --help            help for docs
+      --output string   Write docs to file (stdout if omitted)
 
 Global Flags:
       --api-url string     PatchFlow API URL
@@ -400,130 +925,152 @@ Global Flags:
   -v, --verbose            enable verbose logging
 ```
 
-## `patchflow baseline`
+## `patchflow fix`
 
 ```text
-Create, compare, and manage finding baselines to reduce CI noise.
+Generate and apply safe fixes for security findings detected by PatchFlow.
 
-A baseline stores a snapshot of known findings. Subsequent scans can compare
-against the baseline to only report NEW findings, dramatically reducing
-CI noise on existing codebases.
+The fix command can:
+  1. Suggest fixes for findings (patchflow fix suggest)
+  2. Apply fixes with dry-run preview and confirmation (patchflow fix apply)
+  3. Show a specific fix proposal (patchflow fix show <id>)
 
-Baselines are stored under .patchflow/baselines/<name>.json and compared
-using stable semantic fingerprints (rule id + scanner + normalized path +
-normalized snippet) so that findings survive line-number shifts from
-unrelated edits.
+Fixes are generated from built-in templates that target common vulnerability
+patterns (eval, command injection, SQL injection, weak crypto, etc.).
+Each fix includes a confidence score, rationale, and unified diff patch.
+
+Safe by design:
+  - Never applies without confirmation (unless --yes)
+  - Always shows a preview before applying
+  - Creates backups with --backup
+  - Dry-run mode for CI pipelines
+
+Usage:
+  patchflow fix [command]
+
+Available Commands:
+  apply       Apply fix proposals to source files
+  show        Show the fix proposal for a specific finding
+  suggest     Generate fix proposals for current findings
+
+Flags:
+  -h, --help   help for fix
+
+Global Flags:
+      --api-url string     PatchFlow API URL
+      --cache-dir string   Override cache directory (default: ~/.cache/patchflow/ or $XDG_CACHE_HOME/patchflow/)
+      --config string      config file path
+      --json               output in JSON format
+      --no-color           disable colored output
+  -q, --quiet              suppress non-essential output (for CI scripting)
+  -v, --verbose            enable verbose logging
+
+Use "patchflow fix [command] --help" for more information about a command.
+```
+
+## `patchflow fix suggest`
+
+```text
+Run a scan and generate fix proposals for all findings that have
+matching fix templates. Outputs a summary with confidence levels and
+auto-applicability flags.
+
+Usage:
+  patchflow fix suggest [flags]
+
+Flags:
+      --auto-only         Only show auto-applicable fixes
+  -h, --help              help for suggest
+      --output string     Write proposals to file (JSON format)
+      --severity string   Only suggest fixes for findings at or above this severity (low, medium, high, critical)
+
+Global Flags:
+      --api-url string     PatchFlow API URL
+      --cache-dir string   Override cache directory (default: ~/.cache/patchflow/ or $XDG_CACHE_HOME/patchflow/)
+      --config string      config file path
+      --json               output in JSON format
+      --no-color           disable colored output
+  -q, --quiet              suppress non-essential output (for CI scripting)
+  -v, --verbose            enable verbose logging
+```
+
+## `patchflow fix apply`
+
+```text
+Apply fix proposals to source files. By default, shows a preview
+and asks for confirmation before applying. Use --dry-run to preview
+without applying, or --yes to skip confirmation (for CI).
+
+Usage:
+  patchflow fix apply [flags]
+
+Flags:
+      --all               Apply all auto-applicable fixes
+      --backup            Create backups before applying fixes
+      --dry-run           Preview changes without applying
+      --file string       Apply fixes in a specific file
+      --finding string    Apply fix for a specific finding ID
+  -h, --help              help for apply
+      --line int          Apply fix at a specific line (use with --file)
+      --rule string       Apply fixes for a specific rule ID
+      --severity string   Only apply fixes at or above this severity
+      --yes               Skip confirmation prompt (for CI use)
+
+Global Flags:
+      --api-url string     PatchFlow API URL
+      --cache-dir string   Override cache directory (default: ~/.cache/patchflow/ or $XDG_CACHE_HOME/patchflow/)
+      --config string      config file path
+      --json               output in JSON format
+      --no-color           disable colored output
+  -q, --quiet              suppress non-essential output (for CI scripting)
+  -v, --verbose            enable verbose logging
+```
+
+## `patchflow fix show`
+
+```text
+Show the fix proposal for a specific finding. Runs a scan to locate
+the finding, then generates and displays the proposed fix with diff.
+
+Usage:
+  patchflow fix show [finding-id] [flags]
+
+Flags:
+      --file string   Show fix for finding at this file
+  -h, --help          help for show
+      --line int      Line number (use with --file)
+      --rule string   Rule ID to show fix for
+
+Global Flags:
+      --api-url string     PatchFlow API URL
+      --cache-dir string   Override cache directory (default: ~/.cache/patchflow/ or $XDG_CACHE_HOME/patchflow/)
+      --config string      config file path
+      --json               output in JSON format
+      --no-color           disable colored output
+  -q, --quiet              suppress non-essential output (for CI scripting)
+  -v, --verbose            enable verbose logging
+```
+
+## `patchflow suppress`
+
+```text
+Add a suppression directive to ignore a specific finding.
+
+This inserts a // patchflow:ignore comment at the specified line,
+which tells the scanner to skip that finding in future scans.
 
 Examples:
-  patchflow baseline create --name v1.0
-  patchflow baseline list
-  patchflow baseline diff --from v1.0
-  patchflow baseline delete --name v1.0
-  patchflow scan run --new-only --baseline v1.0
+  patchflow suppress PY001 --file app.py --line 42 --reason "safe eval of trusted config"
+  patchflow suppress TS-JS004 --file src/app.tsx --line 100
 
 Usage:
-  patchflow baseline [command]
-
-Available Commands:
-  create      Create a baseline from current scan findings
-  delete      Delete a saved baseline
-  diff        Diff current scan findings against a baseline
-  list        List all saved baselines
+  patchflow suppress [rule-id] --file [path] --line [n] [flags]
 
 Flags:
-  -h, --help   help for baseline
-
-Global Flags:
-      --api-url string     PatchFlow API URL
-      --cache-dir string   Override cache directory (default: ~/.cache/patchflow/ or $XDG_CACHE_HOME/patchflow/)
-      --config string      config file path
-      --json               output in JSON format
-      --no-color           disable colored output
-  -q, --quiet              suppress non-essential output (for CI scripting)
-  -v, --verbose            enable verbose logging
-
-Use "patchflow baseline [command] --help" for more information about a command.
-```
-
-## `patchflow deps`
-
-```text
-Analyze project dependencies: list, diff against a base branch, find vulnerable packages, or check licenses.
-
-Usage:
-  patchflow deps [command]
-
-Available Commands:
-  diff        Show dependency changes against base branch
-  licenses    Check dependency licenses and classify by risk
-  list        List all dependencies
-  tree        Show dependency tree by ecosystem
-  vulnerable  List vulnerable dependencies
-
-Flags:
-  -h, --help   help for deps
-
-Global Flags:
-      --api-url string     PatchFlow API URL
-      --cache-dir string   Override cache directory (default: ~/.cache/patchflow/ or $XDG_CACHE_HOME/patchflow/)
-      --config string      config file path
-      --json               output in JSON format
-      --no-color           disable colored output
-  -q, --quiet              suppress non-essential output (for CI scripting)
-  -v, --verbose            enable verbose logging
-
-Use "patchflow deps [command] --help" for more information about a command.
-```
-
-## `patchflow reachability`
-
-```text
-Determine whether a vulnerable dependency is reachable — i.e., actually
-imported and used in the codebase. This helps prioritize which vulnerabilities
-to fix first.
-
-Reachability confidence levels:
-  HIGH       directly imported or invoked
-  MEDIUM     direct dependency, possible runtime usage
-  LOW        transitive dependency, no direct usage found
-  NONE       not present in dependency graph
-  UNKNOWN    analysis incomplete
-
-Usage:
-  patchflow reachability [flags]
-
-Flags:
-      --cve string       Check reachability for a specific CVE (finds the package first)
-      --explain          Show evidence for the reachability assessment
-  -h, --help             help for reachability
-      --package string   Check reachability for a specific package
-
-Global Flags:
-      --api-url string     PatchFlow API URL
-      --cache-dir string   Override cache directory (default: ~/.cache/patchflow/ or $XDG_CACHE_HOME/patchflow/)
-      --config string      config file path
-      --json               output in JSON format
-      --no-color           disable colored output
-  -q, --quiet              suppress non-essential output (for CI scripting)
-  -v, --verbose            enable verbose logging
-```
-
-## `patchflow report`
-
-```text
-Run a full analysis and generate a report in the specified format.
-Supported formats: markdown, json, sarif.
-
-The report includes all findings (SCA, SAST, secrets), dependency list,
-risk score breakdown, and recommendations.
-
-Usage:
-  patchflow report [flags]
-
-Flags:
-      --format string   Report format: markdown, json, sarif (default "markdown")
-  -h, --help            help for report
-      --output string   Output file path (stdout if omitted)
+      --file string     File to add suppression to (required)
+  -h, --help            help for suppress
+      --line int        Line number of the finding (required)
+      --reason string   Justification for suppression (required)
 
 Global Flags:
       --api-url string     PatchFlow API URL
@@ -604,6 +1151,93 @@ Global Flags:
 Use "patchflow review [command] --help" for more information about a command.
 ```
 
+## `patchflow review context`
+
+```text
+Show review context for the current repository
+
+Usage:
+  patchflow review context [flags]
+
+Flags:
+  -h, --help   help for context
+
+Global Flags:
+      --api-url string     PatchFlow API URL
+      --cache-dir string   Override cache directory (default: ~/.cache/patchflow/ or $XDG_CACHE_HOME/patchflow/)
+      --config string      config file path
+      --json               output in JSON format
+      --no-color           disable colored output
+  -q, --quiet              suppress non-essential output (for CI scripting)
+  -v, --verbose            enable verbose logging
+```
+
+## `patchflow review pr`
+
+```text
+Review a pull request
+
+Usage:
+  patchflow review pr [flags]
+
+Flags:
+  -h, --help     help for pr
+      --submit   Submit review payload to PatchFlow backend
+
+Global Flags:
+      --api-url string     PatchFlow API URL
+      --cache-dir string   Override cache directory (default: ~/.cache/patchflow/ or $XDG_CACHE_HOME/patchflow/)
+      --config string      config file path
+      --json               output in JSON format
+      --no-color           disable colored output
+  -q, --quiet              suppress non-essential output (for CI scripting)
+  -v, --verbose            enable verbose logging
+```
+
+## `patchflow review diff`
+
+```text
+Review a diff
+
+Usage:
+  patchflow review diff [flags]
+
+Flags:
+      --full-diff   Include full diff content (not yet implemented)
+  -h, --help        help for diff
+
+Global Flags:
+      --api-url string     PatchFlow API URL
+      --cache-dir string   Override cache directory (default: ~/.cache/patchflow/ or $XDG_CACHE_HOME/patchflow/)
+      --config string      config file path
+      --json               output in JSON format
+      --no-color           disable colored output
+  -q, --quiet              suppress non-essential output (for CI scripting)
+  -v, --verbose            enable verbose logging
+```
+
+## `patchflow review status`
+
+```text
+Check the status of a submitted review
+
+Usage:
+  patchflow review status <job-id> [flags]
+
+Flags:
+  -h, --help    help for status
+      --watch   Poll every 5 seconds until the job completes or fails
+
+Global Flags:
+      --api-url string     PatchFlow API URL
+      --cache-dir string   Override cache directory (default: ~/.cache/patchflow/ or $XDG_CACHE_HOME/patchflow/)
+      --config string      config file path
+      --json               output in JSON format
+      --no-color           disable colored output
+  -q, --quiet              suppress non-essential output (for CI scripting)
+  -v, --verbose            enable verbose logging
+```
+
 ## `patchflow auth`
 
 ```text
@@ -628,6 +1262,72 @@ Global Flags:
   -v, --verbose            enable verbose logging
 
 Use "patchflow auth [command] --help" for more information about a command.
+```
+
+## `patchflow auth status`
+
+```text
+Show authentication status
+
+Usage:
+  patchflow auth status [flags]
+
+Flags:
+  -h, --help   help for status
+
+Global Flags:
+      --api-url string     PatchFlow API URL
+      --cache-dir string   Override cache directory (default: ~/.cache/patchflow/ or $XDG_CACHE_HOME/patchflow/)
+      --config string      config file path
+      --json               output in JSON format
+      --no-color           disable colored output
+  -q, --quiet              suppress non-essential output (for CI scripting)
+  -v, --verbose            enable verbose logging
+```
+
+## `patchflow login`
+
+```text
+Authenticate with the PatchFlow platform using an API token or GitHub OAuth device flow.
+
+Usage:
+  patchflow login [flags]
+
+Flags:
+      --client-id string   GitHub OAuth app client ID (required with --device)
+      --device             Use GitHub OAuth device flow
+  -h, --help               help for login
+      --token string       API token
+
+Global Flags:
+      --api-url string     PatchFlow API URL
+      --cache-dir string   Override cache directory (default: ~/.cache/patchflow/ or $XDG_CACHE_HOME/patchflow/)
+      --config string      config file path
+      --json               output in JSON format
+      --no-color           disable colored output
+  -q, --quiet              suppress non-essential output (for CI scripting)
+  -v, --verbose            enable verbose logging
+```
+
+## `patchflow logout`
+
+```text
+Remove stored credentials and log out from the PatchFlow platform.
+
+Usage:
+  patchflow logout [flags]
+
+Flags:
+  -h, --help   help for logout
+
+Global Flags:
+      --api-url string     PatchFlow API URL
+      --cache-dir string   Override cache directory (default: ~/.cache/patchflow/ or $XDG_CACHE_HOME/patchflow/)
+      --config string      config file path
+      --json               output in JSON format
+      --no-color           disable colored output
+  -q, --quiet              suppress non-essential output (for CI scripting)
+  -v, --verbose            enable verbose logging
 ```
 
 ## `patchflow config`
@@ -656,6 +1356,185 @@ Global Flags:
   -v, --verbose            enable verbose logging
 
 Use "patchflow config [command] --help" for more information about a command.
+```
+
+## `patchflow config show`
+
+```text
+Show current configuration
+
+Usage:
+  patchflow config show [flags]
+
+Flags:
+  -h, --help   help for show
+
+Global Flags:
+      --api-url string     PatchFlow API URL
+      --cache-dir string   Override cache directory (default: ~/.cache/patchflow/ or $XDG_CACHE_HOME/patchflow/)
+      --config string      config file path
+      --json               output in JSON format
+      --no-color           disable colored output
+  -q, --quiet              suppress non-essential output (for CI scripting)
+  -v, --verbose            enable verbose logging
+```
+
+## `patchflow config set`
+
+```text
+Set a configuration value
+
+Usage:
+  patchflow config set <key> <value> [flags]
+
+Flags:
+  -h, --help   help for set
+
+Global Flags:
+      --api-url string     PatchFlow API URL
+      --cache-dir string   Override cache directory (default: ~/.cache/patchflow/ or $XDG_CACHE_HOME/patchflow/)
+      --config string      config file path
+      --json               output in JSON format
+      --no-color           disable colored output
+  -q, --quiet              suppress non-essential output (for CI scripting)
+  -v, --verbose            enable verbose logging
+```
+
+## `patchflow config profile`
+
+```text
+Create, switch, and manage multiple configuration profiles for different org/workspace contexts.
+
+Usage:
+  patchflow config profile [command]
+
+Available Commands:
+  create      Create a new configuration profile
+  delete      Delete a configuration profile
+  list        List all configuration profiles
+  show        Show configuration profile details
+  use         Switch active configuration profile
+
+Flags:
+  -h, --help   help for profile
+
+Global Flags:
+      --api-url string     PatchFlow API URL
+      --cache-dir string   Override cache directory (default: ~/.cache/patchflow/ or $XDG_CACHE_HOME/patchflow/)
+      --config string      config file path
+      --json               output in JSON format
+      --no-color           disable colored output
+  -q, --quiet              suppress non-essential output (for CI scripting)
+  -v, --verbose            enable verbose logging
+
+Use "patchflow config profile [command] --help" for more information about a command.
+```
+
+## `patchflow config profile create`
+
+```text
+Create a new configuration profile
+
+Usage:
+  patchflow config profile create <name> [flags]
+
+Flags:
+      --api-url string     API URL for the profile
+  -h, --help               help for create
+      --log-level string   Log level for the profile
+      --org string         Organization for the profile
+
+Global Flags:
+      --cache-dir string   Override cache directory (default: ~/.cache/patchflow/ or $XDG_CACHE_HOME/patchflow/)
+      --config string      config file path
+      --json               output in JSON format
+      --no-color           disable colored output
+  -q, --quiet              suppress non-essential output (for CI scripting)
+  -v, --verbose            enable verbose logging
+```
+
+## `patchflow config profile use`
+
+```text
+Switch active configuration profile
+
+Usage:
+  patchflow config profile use <name> [flags]
+
+Flags:
+  -h, --help   help for use
+
+Global Flags:
+      --api-url string     PatchFlow API URL
+      --cache-dir string   Override cache directory (default: ~/.cache/patchflow/ or $XDG_CACHE_HOME/patchflow/)
+      --config string      config file path
+      --json               output in JSON format
+      --no-color           disable colored output
+  -q, --quiet              suppress non-essential output (for CI scripting)
+  -v, --verbose            enable verbose logging
+```
+
+## `patchflow config profile list`
+
+```text
+List all configuration profiles
+
+Usage:
+  patchflow config profile list [flags]
+
+Flags:
+  -h, --help   help for list
+
+Global Flags:
+      --api-url string     PatchFlow API URL
+      --cache-dir string   Override cache directory (default: ~/.cache/patchflow/ or $XDG_CACHE_HOME/patchflow/)
+      --config string      config file path
+      --json               output in JSON format
+      --no-color           disable colored output
+  -q, --quiet              suppress non-essential output (for CI scripting)
+  -v, --verbose            enable verbose logging
+```
+
+## `patchflow config profile show`
+
+```text
+Show configuration profile details
+
+Usage:
+  patchflow config profile show <name> [flags]
+
+Flags:
+  -h, --help   help for show
+
+Global Flags:
+      --api-url string     PatchFlow API URL
+      --cache-dir string   Override cache directory (default: ~/.cache/patchflow/ or $XDG_CACHE_HOME/patchflow/)
+      --config string      config file path
+      --json               output in JSON format
+      --no-color           disable colored output
+  -q, --quiet              suppress non-essential output (for CI scripting)
+  -v, --verbose            enable verbose logging
+```
+
+## `patchflow config profile delete`
+
+```text
+Delete a configuration profile
+
+Usage:
+  patchflow config profile delete <name> [flags]
+
+Flags:
+  -h, --help   help for delete
+
+Global Flags:
+      --api-url string     PatchFlow API URL
+      --cache-dir string   Override cache directory (default: ~/.cache/patchflow/ or $XDG_CACHE_HOME/patchflow/)
+      --config string      config file path
+      --json               output in JSON format
+      --no-color           disable colored output
+  -q, --quiet              suppress non-essential output (for CI scripting)
+  -v, --verbose            enable verbose logging
 ```
 
 ## `patchflow cache`
@@ -701,5 +1580,354 @@ Global Flags:
   -v, --verbose            enable verbose logging
 
 Use "patchflow cache [command] --help" for more information about a command.
+```
+
+## `patchflow cache status`
+
+```text
+Show cache directory location, size, and entry counts
+
+Usage:
+  patchflow cache status [flags]
+
+Flags:
+  -h, --help   help for status
+
+Global Flags:
+      --api-url string     PatchFlow API URL
+      --cache-dir string   Override cache directory (default: ~/.cache/patchflow/ or $XDG_CACHE_HOME/patchflow/)
+      --config string      config file path
+      --json               output in JSON format
+      --no-color           disable colored output
+  -q, --quiet              suppress non-essential output (for CI scripting)
+  -v, --verbose            enable verbose logging
+```
+
+## `patchflow cache clean`
+
+```text
+Remove all cache contents (OSV responses and incremental SAST state).
+
+Baselines and reports are NOT removed.
+
+Use --force to skip the confirmation prompt.
+
+Usage:
+  patchflow cache clean [flags]
+
+Flags:
+      --force   Skip confirmation prompt
+  -h, --help    help for clean
+
+Global Flags:
+      --api-url string     PatchFlow API URL
+      --cache-dir string   Override cache directory (default: ~/.cache/patchflow/ or $XDG_CACHE_HOME/patchflow/)
+      --config string      config file path
+      --json               output in JSON format
+      --no-color           disable colored output
+  -q, --quiet              suppress non-essential output (for CI scripting)
+  -v, --verbose            enable verbose logging
+```
+
+## `patchflow cache update`
+
+```text
+Download OSV vulnerability data from the OSV.dev bulk export and cache
+it locally at ~/.patchflow/osv-db/. This enables fast offline scanning without
+API calls to OSV.dev.
+
+The database is refreshed automatically when stale (>24h old), but you can
+force a refresh with --force.
+
+Supported ecosystems: PyPI, npm, Maven, Go, RubyGems, Packagist, crates.io.
+Use --ecosystems to select specific ones (default: all relevant to detected manifests).
+
+Usage:
+  patchflow cache update [flags]
+
+Flags:
+      --ecosystems strings   Ecosystems to download (pypi,npm,maven,go,rubygems,packagist,crates.io)
+      --force                Force refresh even if DB is fresh
+  -h, --help                 help for update
+
+Global Flags:
+      --api-url string     PatchFlow API URL
+      --cache-dir string   Override cache directory (default: ~/.cache/patchflow/ or $XDG_CACHE_HOME/patchflow/)
+      --config string      config file path
+      --json               output in JSON format
+      --no-color           disable colored output
+  -q, --quiet              suppress non-essential output (for CI scripting)
+  -v, --verbose            enable verbose logging
+```
+
+## `patchflow benchmark`
+
+```text
+Benchmark PatchFlow (and optional comparison tools) against a declared suite
+of open-source repositories to measure detection, false positives, performance,
+SARIF quality, and CI behavior.
+
+Subcommands:
+  run      Execute a benchmark suite from a benchmark.yaml config.
+  compare  Compare summary.json results across multiple runs.
+  report   Regenerate a summary report from existing results.
+
+The benchmark invokes PatchFlow as a real subprocess so it measures actual CLI
+behavior (startup, exit codes, SARIF). Comparison tools (semgrep, trivy,
+gitleaks, osv-scanner) run when installed.
+
+Responsible disclosure: findings from active/maintained repos are never
+published in detail. Only intentionally-vulnerable and historical repos expose
+per-finding detail.
+
+Usage:
+  patchflow benchmark [command]
+
+Available Commands:
+  compare     Compare summary results across multiple benchmark runs
+  report      Regenerate a summary report from existing benchmark results
+  run         Execute a benchmark suite
+
+Flags:
+  -h, --help   help for benchmark
+
+Global Flags:
+      --api-url string     PatchFlow API URL
+      --cache-dir string   Override cache directory (default: ~/.cache/patchflow/ or $XDG_CACHE_HOME/patchflow/)
+      --config string      config file path
+      --json               output in JSON format
+      --no-color           disable colored output
+  -q, --quiet              suppress non-essential output (for CI scripting)
+  -v, --verbose            enable verbose logging
+
+Use "patchflow benchmark [command] --help" for more information about a command.
+```
+
+## `patchflow benchmark run`
+
+```text
+Execute a benchmark suite
+
+Usage:
+  patchflow benchmark run [benchmark.yaml] [flags]
+
+Flags:
+  -h, --help                 help for run
+      --no-tools             Skip comparison tools (only run PatchFlow)
+      --no-warm              Skip the warm (cached) second run
+      --results-dir string   Override results directory (default: results/<YYYY-MM>/)
+      --timeout duration     Per-scan timeout (default 15m0s)
+
+Global Flags:
+      --api-url string     PatchFlow API URL
+      --cache-dir string   Override cache directory (default: ~/.cache/patchflow/ or $XDG_CACHE_HOME/patchflow/)
+      --config string      config file path
+      --json               output in JSON format
+      --no-color           disable colored output
+  -q, --quiet              suppress non-essential output (for CI scripting)
+  -v, --verbose            enable verbose logging
+```
+
+## `patchflow benchmark compare`
+
+```text
+Compare summary results across multiple benchmark runs
+
+Usage:
+  patchflow benchmark compare [results-dir] [flags]
+
+Flags:
+  -h, --help   help for compare
+
+Global Flags:
+      --api-url string     PatchFlow API URL
+      --cache-dir string   Override cache directory (default: ~/.cache/patchflow/ or $XDG_CACHE_HOME/patchflow/)
+      --config string      config file path
+      --json               output in JSON format
+      --no-color           disable colored output
+  -q, --quiet              suppress non-essential output (for CI scripting)
+  -v, --verbose            enable verbose logging
+```
+
+## `patchflow benchmark report`
+
+```text
+Regenerate a summary report from existing benchmark results
+
+Usage:
+  patchflow benchmark report [results-dir] [flags]
+
+Flags:
+      --format string   Report format: markdown, json (default "markdown")
+  -h, --help            help for report
+
+Global Flags:
+      --api-url string     PatchFlow API URL
+      --cache-dir string   Override cache directory (default: ~/.cache/patchflow/ or $XDG_CACHE_HOME/patchflow/)
+      --config string      config file path
+      --json               output in JSON format
+      --no-color           disable colored output
+  -q, --quiet              suppress non-essential output (for CI scripting)
+  -v, --verbose            enable verbose logging
+```
+
+## `patchflow completion`
+
+```text
+Generate shell completion scripts for patchflow.
+
+To load completions:
+
+Bash:
+  source <(patchflow completion bash)
+
+  # To load completions for each session, add the above line to your ~/.bashrc
+
+Zsh:
+  # If shell completion is not already enabled in your environment,
+  # enable it by running:
+  echo "autoload -U compinit; compinit" >> ~/.zshrc
+
+  source <(patchflow completion zsh)
+
+  # To load completions for each session, add the above line to your ~/.zshrc
+
+Fish:
+  patchflow completion fish | source
+
+  # To load completions for each session, add the above line to your ~/.config/fish/config.fish
+
+PowerShell:
+  patchflow completion powershell | Out-String | Invoke-Expression
+
+  # To load completions for every new session, add the output of the above
+  # command to your PowerShell profile.
+
+Usage:
+  patchflow completion [bash|zsh|fish|powershell]
+
+Flags:
+  -h, --help   help for completion
+
+Global Flags:
+      --api-url string     PatchFlow API URL
+      --cache-dir string   Override cache directory (default: ~/.cache/patchflow/ or $XDG_CACHE_HOME/patchflow/)
+      --config string      config file path
+      --json               output in JSON format
+      --no-color           disable colored output
+  -q, --quiet              suppress non-essential output (for CI scripting)
+  -v, --verbose            enable verbose logging
+```
+
+## `patchflow init github-actions`
+
+```text
+Create .github/workflows/patchflow-scan.yml in the current repository.
+The workflow runs patchflow scan run --profile ci --format sarif and uploads
+SARIF results to GitHub Code Scanning.
+
+Usage:
+  patchflow init github-actions [flags]
+
+Flags:
+  -h, --help   help for github-actions
+
+Global Flags:
+      --api-url string     PatchFlow API URL
+      --cache-dir string   Override cache directory (default: ~/.cache/patchflow/ or $XDG_CACHE_HOME/patchflow/)
+      --config string      config file path
+      --json               output in JSON format
+      --no-color           disable colored output
+  -q, --quiet              suppress non-essential output (for CI scripting)
+  -v, --verbose            enable verbose logging
+```
+
+## `patchflow init gitlab-ci`
+
+```text
+Create or append a patchflow:scan job to .gitlab-ci.yml in the current
+repository. The job runs patchflow scan run --profile ci and publishes JSON and
+SARIF reports as artifacts.
+
+Usage:
+  patchflow init gitlab-ci [flags]
+
+Flags:
+  -h, --help   help for gitlab-ci
+
+Global Flags:
+      --api-url string     PatchFlow API URL
+      --cache-dir string   Override cache directory (default: ~/.cache/patchflow/ or $XDG_CACHE_HOME/patchflow/)
+      --config string      config file path
+      --json               output in JSON format
+      --no-color           disable colored output
+  -q, --quiet              suppress non-essential output (for CI scripting)
+  -v, --verbose            enable verbose logging
+```
+
+## `patchflow init jenkins`
+
+```text
+Create Jenkinsfile.patchflow in the current repository containing a
+PatchFlow Security Scan stage. Existing Jenkinsfiles are not modified.
+
+Usage:
+  patchflow init jenkins [flags]
+
+Flags:
+  -h, --help   help for jenkins
+
+Global Flags:
+      --api-url string     PatchFlow API URL
+      --cache-dir string   Override cache directory (default: ~/.cache/patchflow/ or $XDG_CACHE_HOME/patchflow/)
+      --config string      config file path
+      --json               output in JSON format
+      --no-color           disable colored output
+  -q, --quiet              suppress non-essential output (for CI scripting)
+  -v, --verbose            enable verbose logging
+```
+
+## `patchflow init azure-devops`
+
+```text
+Create azure-pipelines-patchflow.yml in the current repository with a
+PatchFlow Security Scan task and artifact publishing.
+
+Usage:
+  patchflow init azure-devops [flags]
+
+Flags:
+  -h, --help   help for azure-devops
+
+Global Flags:
+      --api-url string     PatchFlow API URL
+      --cache-dir string   Override cache directory (default: ~/.cache/patchflow/ or $XDG_CACHE_HOME/patchflow/)
+      --config string      config file path
+      --json               output in JSON format
+      --no-color           disable colored output
+  -q, --quiet              suppress non-essential output (for CI scripting)
+  -v, --verbose            enable verbose logging
+```
+
+## `patchflow init pre-commit`
+
+```text
+Create or append a patchflow hook to .pre-commit-config.yaml in the
+current repository. The hook runs patchflow scan run --profile dev on commit.
+
+Usage:
+  patchflow init pre-commit [flags]
+
+Flags:
+  -h, --help   help for pre-commit
+
+Global Flags:
+      --api-url string     PatchFlow API URL
+      --cache-dir string   Override cache directory (default: ~/.cache/patchflow/ or $XDG_CACHE_HOME/patchflow/)
+      --config string      config file path
+      --json               output in JSON format
+      --no-color           disable colored output
+  -q, --quiet              suppress non-essential output (for CI scripting)
+  -v, --verbose            enable verbose logging
 ```
 
