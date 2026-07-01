@@ -1,3 +1,8 @@
+---
+title: Configuration Reference
+description: Config file format, profiles, and all configurable options
+---
+
 # Configuration Reference
 
 This page documents the PatchFlow CLI configuration file format, profiles, and

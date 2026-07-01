@@ -1,3 +1,8 @@
+---
+title: Container Scanning
+description: Scan container images for OS package vulnerabilities and misconfigurations
+---
+
 # Container Scanning
 
 The `patchflow scan image` command scans container images for OS package
@@ -68,7 +73,7 @@ timeout.
 The image name is passed as a positional argument:
 
 ```bash
-patchflow scan image <image-name> [flags]
+patchflow scan image IMAGE_NAME [flags]
 ```
 
 ## What Container Scanning Detects

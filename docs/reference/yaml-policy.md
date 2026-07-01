@@ -1,3 +1,8 @@
+---
+title: YAML Policy Reference
+description: Full YAML policy format for custom rules and framework overrides
+---
+
 # YAML Policy Reference
 
 This page documents the full YAML policy format for `.patchflow/rules.yaml`.
@@ -118,9 +123,9 @@ sinks, sanitizers, and severity policy.
 
 ```yaml
 framework_overrides:
-  <pack-name>:
+  PACK_NAME:
     severity_overrides:
-      <rule-id>: <severity>
+      RULE_ID: SEVERITY
 ```
 
 Example:
@@ -137,10 +142,10 @@ framework_overrides:
 
 ```yaml
 framework_overrides:
-  <pack-name>:
+  PACK_NAME:
     custom_sanitizers:
-      - func: <function-name>
-      - regex: <regex-pattern>
+      - func: FUNCTION_NAME
+      - regex: REGEX_PATTERN
 ```
 
 Example:
@@ -160,9 +165,9 @@ Sanitizers can be specified by function name (`func`) or regex pattern (`regex`)
 
 ```yaml
 framework_overrides:
-  <pack-name>:
+  PACK_NAME:
     custom_sources:
-      - func: <function-name>
+      - func: FUNCTION_NAME
 ```
 
 Example:
@@ -181,9 +186,9 @@ tainted data.
 
 ```yaml
 framework_overrides:
-  <pack-name>:
+  PACK_NAME:
     custom_sinks:
-      - func: <function-name>
+      - func: FUNCTION_NAME
 ```
 
 Example:

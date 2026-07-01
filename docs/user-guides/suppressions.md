@@ -1,3 +1,8 @@
+---
+title: Suppressions
+description: Suppress false positives with patchflow:ignore directives
+---
+
 # Suppressions
 
 Suppress false positives with `//patchflow:ignore` directives. These comments
@@ -45,12 +50,12 @@ element.innerHTML = userInput;
 ## Suppression Format
 
 ```
-<comment-prefix> patchflow:ignore <rule-id> [-- <reason>]
+COMMENT_PREFIX patchflow:ignore RULE_ID [-- REASON]
 ```
 
-- `<comment-prefix>`: `#` or `//` depending on file type
-- `<rule-id>`: The rule ID to suppress (e.g., `PY001`, `G404`)
-- `-- <reason>`: Optional but recommended justification for the suppression
+- `COMMENT_PREFIX`: `#` or `//` depending on file type
+- `RULE_ID`: The rule ID to suppress (e.g., `PY001`, `G404`)
+- `-- REASON`: Optional but recommended justification for the suppression
 
 The suppression directive must be on the line **before** the finding.
 
@@ -73,7 +78,7 @@ patchflow suppress PY001 --file src/app.py --line 42 --reason "eval is safe, inp
 The rule ID is passed as a positional argument:
 
 ```bash
-patchflow suppress <rule-id> --file <path> --line <n> --reason <text>
+patchflow suppress RULE_ID --file PATH --line N --reason TEXT
 ```
 
 ### Behavior
@@ -95,7 +100,7 @@ Suppressed findings are marked as suppressed in the output.
 
 ## Best Practices
 
-1. **Always include a reason**: The `-- <reason>` portion documents why the
+1. **Always include a reason**: The `-- REASON` portion documents why the
    finding is suppressed. This helps future reviewers understand the decision.
 
 2. **Be specific with rule IDs**: Suppress only the specific rule that is a false

@@ -1,3 +1,8 @@
+---
+title: Core Concepts
+description: Understand SCA, SAST, reachability, risk scoring, and governance
+---
+
 # Core Concepts
 
 PatchFlow CLI combines multiple analysis engines into a single local-first

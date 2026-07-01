@@ -1,3 +1,8 @@
+---
+title: Azure DevOps
+description: Use PatchFlow in Azure DevOps pipelines
+---
+
 # Azure DevOps
 
 Use PatchFlow in Azure DevOps pipelines to scan code changes and publish

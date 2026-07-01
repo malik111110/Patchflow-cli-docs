@@ -1,3 +1,8 @@
+---
+title: Developer CI/CD
+description: CI for the PatchFlow CLI and docs site
+---
+
 # Developer CI/CD
 
 This page documents CI for the PatchFlow CLI and the docs site.

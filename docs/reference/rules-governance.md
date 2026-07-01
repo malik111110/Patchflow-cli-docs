@@ -1,3 +1,8 @@
+---
+title: Rule Governance
+description: Rule maturity levels, governance profiles, and blocking eligibility
+---
+
 # Rule Governance
 
 PatchFlow's governance system controls which rules are visible, which findings

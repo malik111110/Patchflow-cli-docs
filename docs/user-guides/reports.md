@@ -1,3 +1,8 @@
+---
+title: Reports
+description: Generate security analysis reports in Markdown, JSON, and SARIF
+---
+
 # Reports
 
 The `patchflow report` command generates security analysis reports in Markdown,

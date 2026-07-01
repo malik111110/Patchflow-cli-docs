@@ -1,3 +1,8 @@
+---
+title: SARIF Uploads
+description: Generate and upload SARIF to GitHub Code Scanning and security dashboards
+---
+
 # SARIF Uploads
 
 SARIF (Static Analysis Results Interchange Format) is the industry standard

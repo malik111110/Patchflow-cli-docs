@@ -1,3 +1,8 @@
+---
+title: Generated Command Reference
+description: Full command help output auto-generated from the CLI binary
+---
+
 # Generated Command Reference
 
 Generated from `patchflow --help` output. Run this after changing CLI commands:

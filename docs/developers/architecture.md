@@ -1,3 +1,8 @@
+---
+title: Architecture
+description: Detailed architecture of the SAST runner, scanners, and framework packs
+---
+
 # Architecture
 
 This page provides a detailed architectural deep-dive into PatchFlow CLI's

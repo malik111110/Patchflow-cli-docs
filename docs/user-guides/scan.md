@@ -1,3 +1,8 @@
+---
+title: Scan Your Project
+description: Full scan command reference with all flags and profiles
+---
+
 # Scan Your Project
 
 `patchflow scan run` is the primary local security command. It runs a full
@@ -12,6 +17,53 @@ patchflow scan run
 
 Runs all analysis stages with the `standard` profile and `ci` governance profile.
 Output is a terminal summary with findings grouped by severity and scanner.
+
+Expected output (abbreviated):
+
+```text
+PatchFlow Security Scan
+========================
+
+Repository:       /home/user/my-project
+Branch:           main
+Scan profile:     standard
+Governance:       ci
+
+SCA Analysis
+------------
+Dependencies scanned:    247
+Vulnerable dependencies: 12
+  Critical: 1
+  High:      4
+  Medium:    5
+  Low:       2
+
+SAST Analysis
+-------------
+Files scanned:     1,832
+SAST findings:     23
+  Critical: 0
+  High:      6
+  Medium:   12
+  Low:       5
+
+Secret Detection
+----------------
+Secrets found:     2
+  High: 1 (AWS access key in src/config.js:42)
+  Medium: 1 (Generic API key in .env.local:8)
+
+Reachability
+------------
+Reachable vulnerabilities: 7 of 12
+  High confidence: 4
+  Medium confidence: 2
+  Low confidence: 1
+
+Risk Score: 67/100 (Warning)
+
+Report generated: .patchflow/reports/patchflow-report-20260115-093012.md
+```
 
 ## Scan Profiles
 

@@ -1,3 +1,8 @@
+---
+title: Benchmarks
+description: Real-repo benchmark suite for scanner accuracy and performance
+---
+
 # Benchmarks
 
 PatchFlow includes a real-repo benchmark suite for measuring scanner accuracy,

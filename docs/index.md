@@ -1,3 +1,8 @@
+---
+title: PatchFlow CLI Documentation
+description: Local-first security scanner for modern engineering teams
+---
+
 # PatchFlow CLI Documentation
 
 PatchFlow CLI is a local-first security scanner for modern engineering teams. It
@@ -30,12 +35,21 @@ review command.
 
 | Section | Audience | Content |
 | --- | --- | --- |
-| [Getting Started](./getting-started/installation.md) | All users | Installation, first scan, core concepts |
+| [Getting Started](./getting-started/installation.md) | All users | Installation, quickstart, core concepts, why PatchFlow, trust model, common errors |
 | [User Guides](./user-guides/scan.md) | Developers, security engineers | Detailed command usage for every feature |
-| [Workflows](./workflows/recommended.md) | Teams | Recommended team adoption strategies |
+| [Workflows](./workflows/recommended.md) | Solo devs and teams | Recommended workflows for solo developers and teams, CI adoption |
 | [Integrations](./integrations/github-actions.md) | CI/CD engineers | GitHub Actions, GitLab CI, SARIF, pre-commit, Jenkins, Azure DevOps |
 | [Developers](./developers/overview.md) | Contributors | Architecture, framework pack development, CI/CD, benchmarks |
 | [Reference](./reference/commands.md) | All users | Command reference, configuration, YAML policy, rule governance, scanner reference |
+
+## New to PatchFlow?
+
+Start here:
+
+1. [Why PatchFlow](./getting-started/why-patchflow.md) — Why use PatchFlow instead of stacking Trivy + Semgrep + Gitleaks
+2. [Quickstart](./getting-started/quickstart.md) — Get running in under 5 minutes
+3. [Local vs Backend](./getting-started/local-vs-backend.md) — What data leaves your machine (trust model)
+4. [Common Errors](./getting-started/common-errors.md) — Troubleshooting guide
 
 ## Quick Start
 

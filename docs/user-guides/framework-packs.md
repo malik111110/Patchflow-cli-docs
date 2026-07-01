@@ -1,3 +1,8 @@
+---
+title: Framework Packs
+description: Official embedded framework rule packs for PatchFlow CLI
+---
+
 # Framework Packs
 
 Framework packs are official embedded rule sets that understand framework-specific

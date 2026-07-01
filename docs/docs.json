@@ -152,7 +152,10 @@
             "pages": [
               "getting-started/installation",
               "getting-started/quickstart",
-              "getting-started/concepts"
+              "getting-started/concepts",
+              "getting-started/why-patchflow",
+              "getting-started/local-vs-backend",
+              "getting-started/common-errors"
             ]
           },
           {
@@ -181,6 +184,8 @@
             "icon": "workflow",
             "pages": [
               "workflows/recommended",
+              "workflows/solo-dev",
+              "workflows/teams",
               "workflows/ci-adoption"
             ]
           },

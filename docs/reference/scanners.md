@@ -1,3 +1,8 @@
+---
+title: Scanner Reference
+description: All embedded and external scanners in PatchFlow CLI
+---
+
 # Scanner Reference
 
 This page documents all embedded and external scanners in PatchFlow CLI.

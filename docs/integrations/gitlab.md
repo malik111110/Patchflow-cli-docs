@@ -1,3 +1,8 @@
+---
+title: GitLab CI
+description: Use PatchFlow in GitLab CI for merge request scanning
+---
+
 # GitLab CI
 
 Use PatchFlow in GitLab CI to scan merge requests, publish artifacts, and enforce

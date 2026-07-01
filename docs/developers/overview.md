@@ -1,3 +1,8 @@
+---
+title: Developer Overview
+description: Architecture and package map for PatchFlow CLI contributors
+---
+
 # Developer Overview
 
 PatchFlow CLI is a Go application organized around scanner engines, rule

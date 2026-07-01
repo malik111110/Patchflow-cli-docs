@@ -1,3 +1,8 @@
+---
+title: Authentication
+description: Login, token management, and when authentication is required
+---
+
 # Authentication
 
 Authentication is only required for backend-connected review commands

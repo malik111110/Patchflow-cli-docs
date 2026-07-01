@@ -1,3 +1,8 @@
+---
+title: GitHub Actions
+description: Use PatchFlow in GitHub Actions for pull request scanning and code scanning
+---
+
 # GitHub Actions
 
 Use PatchFlow in GitHub Actions to scan pull requests, upload SARIF to code

@@ -1,3 +1,8 @@
+---
+title: CI Adoption Strategy
+description: Phased CI adoption strategy for PatchFlow
+---
+
 # CI Adoption Strategy
 
 Adopting PatchFlow in CI requires a phased approach to avoid blocking teams on

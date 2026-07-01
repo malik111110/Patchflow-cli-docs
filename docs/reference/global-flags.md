@@ -1,3 +1,8 @@
+---
+title: Global Flags
+description: Global CLI flags available on all PatchFlow commands
+---
+
 # Global Flags
 
 These flags are available on all PatchFlow commands. They are inherited from the

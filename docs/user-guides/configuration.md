@@ -1,3 +1,8 @@
+---
+title: Configuration
+description: Configuration files, profiles, and environment variables
+---
+
 # Configuration
 
 PatchFlow CLI stores configuration at two levels: global user configuration and

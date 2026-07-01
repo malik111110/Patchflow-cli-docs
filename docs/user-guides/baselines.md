@@ -1,3 +1,8 @@
+---
+title: Baselines
+description: Snapshot known findings so CI can focus on new issues
+---
+
 # Baselines
 
 Baselines store a snapshot of known findings so CI can focus on new issues. This
@@ -48,6 +53,15 @@ patchflow baseline create --name v1.0
 The baseline captures all current SAST findings. The command runs a full SAST
 scan (120s timeout) and stores the results with stable fingerprints.
 
+Expected output:
+
+```text
+Running full SAST scan...
+Scan complete: 23 findings detected.
+Baseline 'v1.0' created with 23 findings.
+Stored at: .patchflow/baselines/v1.0.json
+```
+
 ## List Baselines
 
 ```bash
@@ -56,6 +70,17 @@ patchflow baseline list
 
 Lists all saved baselines with finding counts and creation dates, sorted
 alphabetically by name.
+
+Expected output:
+
+```text
+Baselines
+=========
+
+  Name      Findings    Created
+  v1.0      23          2026-01-15 09:30:12
+  v2.0      18          2026-02-01 14:22:45
+```
 
 ## Diff Against a Baseline
 
@@ -66,6 +91,28 @@ patchflow baseline diff --from v1.0
 Runs a full SAST scan and reports new, resolved, and unchanged findings relative
 to the named baseline. Exits with code 1 if new findings are found (for CI
 blocking).
+
+Expected output:
+
+```text
+Baseline Diff: v1.0 → current
+==============================
+
+New findings (3):
+  PF-SCAN-024  HIGH    src/api/auth.py:28    SQL injection
+  PF-SCAN-025  MEDIUM  src/utils/crypto.py:15  Weak crypto
+  PF-SCAN-026  LOW     src/config.js:8       Hardcoded API key
+
+Resolved findings (5):
+  PF-SCAN-012  HIGH    src/old/auth.py:42    Command injection
+  PF-SCAN-015  MEDIUM  src/old/utils.py:20   Path traversal
+  ...
+
+Unchanged findings (18)
+
+Summary: 3 new, 5 resolved, 18 unchanged
+Exit code: 1 (new findings detected)
+```
 
 The output shows:
 

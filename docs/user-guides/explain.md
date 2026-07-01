@@ -1,3 +1,8 @@
+---
+title: Explain
+description: Explain a security finding with evidence, fix hints, and suppression info
+---
+
 # Explain
 
 The `patchflow explain` command explains a security finding in detail. It shows
@@ -20,7 +25,7 @@ sinks, sanitizers, safe patterns, and exclusions.
 ### Explain by Finding ID
 
 ```bash
-patchflow explain <finding-id>
+patchflow explain FINDING_ID
 ```
 
 The finding ID is shown in `patchflow scan run` output. This runs a scan to
@@ -94,7 +99,7 @@ Outputs the explanation as structured JSON for automation and tooling.
 The finding ID can also be passed as a positional argument:
 
 ```bash
-patchflow explain <finding-id>
+patchflow explain FINDING_ID
 ```
 
 ## Examples

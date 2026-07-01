@@ -1,3 +1,8 @@
+---
+title: Installation
+description: Install PatchFlow CLI via Homebrew, Scoop, Go, or build from source
+---
+
 # Installation
 
 PatchFlow CLI is a single Go binary. Choose the installation method that fits

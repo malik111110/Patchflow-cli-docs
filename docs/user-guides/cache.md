@@ -1,3 +1,8 @@
+---
+title: Cache Management
+description: Local cache management and offline OSV database
+---
+
 # Cache Management
 
 PatchFlow maintains a local cache for OSV vulnerability responses, incremental

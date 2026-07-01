@@ -1,3 +1,8 @@
+---
+title: Adding a Framework Pack
+description: Step-by-step guide to creating a new framework pack
+---
+
 # Adding a Framework Pack
 
 This guide walks through creating a new framework pack for PatchFlow CLI.

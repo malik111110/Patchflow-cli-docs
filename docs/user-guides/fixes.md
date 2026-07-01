@@ -1,3 +1,8 @@
+---
+title: Fixes
+description: Generate and apply safe fixes for security findings
+---
+
 # Fixes
 
 The `patchflow fix` command generates and applies safe fixes for security
@@ -31,6 +36,49 @@ includes:
 - Fix strategy
 - Rationale
 - Whether the fix is auto-applicable
+
+Expected output (abbreviated):
+
+```text
+Fix Proposals (5 found)
+========================
+
+1. PF-SCAN-001  PY001  HIGH  (auto-applicable)
+   File:    src/app.py:42
+   Strategy: replace
+   Confidence: high
+
+   Original:
+     result = eval(user_input)
+
+   Fixed:
+     import ast
+     result = ast.literal_eval(user_input)
+
+2. PF-SCAN-002  PY004  MEDIUM  (auto-applicable)
+   File:    src/subprocess.py:15
+   Strategy: wrap
+   Confidence: high
+
+   Original:
+     subprocess.call(cmd, shell=True)
+
+   Fixed:
+     subprocess.call(cmd, shell=False)
+
+3. PF-SCAN-003  JS003  MEDIUM  (needs review)
+   File:    src/render.js:28
+   Strategy: replace
+   Confidence: medium
+
+   Original:
+     element.innerHTML = userInput;
+
+   Fixed:
+     element.textContent = userInput;
+
+Summary: 3 auto-applicable, 2 needs review
+```
 
 ### Filter by Severity
 
@@ -71,7 +119,7 @@ confirmation before applying.
 
 ```bash
 # Apply fix for a specific finding ID
-patchflow fix apply --finding <finding-id>
+patchflow fix apply --finding FINDING_ID
 
 # Apply fixes for a specific rule ID
 patchflow fix apply --rule PY001
@@ -129,7 +177,7 @@ Only applies fixes for findings at or above the specified severity.
 ## Show a Fix
 
 ```bash
-patchflow fix show <finding-id>
+patchflow fix show FINDING_ID
 ```
 
 Shows the fix proposal for a specific finding without applying it.

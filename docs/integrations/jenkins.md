@@ -1,3 +1,8 @@
+---
+title: Jenkins
+description: Use PatchFlow in Jenkins pipelines
+---
+
 # Jenkins
 
 Use PatchFlow in Jenkins pipelines to scan code changes and archive reports.

@@ -1,3 +1,8 @@
+---
+title: PR Review
+description: Simulate a PR risk review locally before opening a pull request
+---
+
 # PR Review
 
 The `patchflow pr-review` command simulates a PR risk review locally, before you
@@ -169,10 +174,10 @@ patchflow review context
 patchflow review pr --submit
 
 # Check review job status
-patchflow review status <job-id>
+patchflow review status JOB_ID
 
 # Watch review job status
-patchflow review status <job-id> --watch
+patchflow review status JOB_ID --watch
 ```
 
 These commands require authentication (`patchflow login`) and a backend

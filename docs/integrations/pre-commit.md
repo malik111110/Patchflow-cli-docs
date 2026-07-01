@@ -1,3 +1,8 @@
+---
+title: pre-commit Hook
+description: Use PatchFlow as a pre-commit hook to catch issues before commit
+---
+
 # pre-commit Hook
 
 Use PatchFlow as a pre-commit hook to catch security issues before they reach

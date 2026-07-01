@@ -1,3 +1,8 @@
+---
+title: Framework Rule Packs
+description: Framework pack structure, rule design, and noise controls
+---
+
 # Framework Rule Packs
 
 Framework packs are official embedded rule sets. User YAML can extend them, but

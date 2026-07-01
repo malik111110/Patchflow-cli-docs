@@ -1,3 +1,8 @@
+---
+title: Commands
+description: Curated command map for all PatchFlow CLI commands
+---
+
 # Commands
 
 This page provides a curated command map. For the full generated command help
@@ -142,7 +147,7 @@ patchflow reachability --package lodash --explain
 patchflow fix suggest
 patchflow fix suggest --severity high --auto-only
 patchflow fix apply --all --auto-only --yes
-patchflow fix show <finding-id>
+patchflow fix show FINDING_ID
 ```
 
 ## PR Review
@@ -158,8 +163,8 @@ patchflow pr-review --format sarif --output pr-review.sarif
 ```bash
 patchflow review context
 patchflow review pr --submit
-patchflow review status <job-id>
-patchflow review status <job-id> --watch
+patchflow review status JOB_ID
+patchflow review status JOB_ID --watch
 ```
 
 ## Authentication

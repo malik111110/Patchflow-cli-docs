@@ -1,3 +1,8 @@
+---
+title: Custom Rules and YAML
+description: Project-level YAML for custom regex rules and framework pack overrides
+---
+
 # Custom Rules and YAML
 
 PatchFlow supports project-level YAML for custom regex rules and framework pack

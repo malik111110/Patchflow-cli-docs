@@ -1,3 +1,8 @@
+---
+title: Dependencies
+description: Analyze project dependencies with the deps command
+---
+
 # Dependencies
 
 The `patchflow deps` command analyzes project dependencies: list them, find
@@ -13,6 +18,31 @@ patchflow deps list
 Lists all dependencies with name, version, ecosystem, direct/transitive status,
 and manifest path. Dependencies are grouped by ecosystem (Go, npm, PyPI, Maven,
 RubyGems, Packagist, Cargo).
+
+Expected output (abbreviated):
+
+```text
+Dependencies (247 total)
+========================
+
+npm (142)
+  Name                    Version    Type      Manifest
+  express                 4.18.2     direct    package.json
+  lodash                  4.17.20    direct    package.json
+  minimist                1.2.5      transitive package-lock.json
+  ...
+
+PyPI (78)
+  Name                    Version    Type      Manifest
+  requests                2.25.0     direct    requirements.txt
+  flask                   2.0.1      direct    requirements.txt
+  ...
+
+Go (27)
+  Name                    Version    Type      Manifest
+  github.com/gin-gonic/gin v1.7.0    direct    go.mod
+  ...
+```
 
 Use `--json` for machine-readable output:
 
@@ -33,6 +63,29 @@ Queries OSV.dev for each dependency and lists vulnerabilities with:
 - Severity
 - Affected version range
 - Fixed version
+
+Expected output (abbreviated):
+
+```text
+Vulnerable Dependencies (12 found)
+===================================
+
+1. lodash@4.17.20 (npm)
+   CVE-2021-23337    HIGH      Command Injection
+   Affected: <4.17.21
+   Fixed:    4.17.21
+
+2. minimist@1.2.5 (npm)
+   CVE-2021-44906    CRITICAL  Prototype Pollution
+   Affected: <1.2.6
+   Fixed:    1.2.6
+
+3. requests@2.25.0 (PyPI)
+   CVE-2021-33503    HIGH      Denial of Service
+   Affected: <2.26.0
+   Fixed:    2.26.0
+   ...
+```
 
 Use `--json` for machine-readable output:
 

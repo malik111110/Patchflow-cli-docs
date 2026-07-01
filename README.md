@@ -11,11 +11,15 @@ Markdown that can be read directly on GitHub or in any Markdown viewer.
 
 ```text
 docs/
+├── docs.json                     Mintlify configuration (navigation, theme, branding)
 ├── index.md                      Home page and overview
 ├── getting-started/
 │   ├── installation.md           Installation methods
 │   ├── quickstart.md             First scan, report, and baseline
-│   └── concepts.md               Core concepts (SCA, SAST, reachability, risk)
+│   ├── concepts.md               Core concepts (SCA, SAST, reachability, risk)
+│   ├── why-patchflow.md          Why PatchFlow vs stacking Trivy + Semgrep + Gitleaks
+│   ├── local-vs-backend.md       What data leaves your machine (trust/privacy)
+│   └── common-errors.md          Troubleshooting common errors
 ├── user-guides/
 │   ├── scan.md                   Scan command reference
 │   ├── dependencies.md           deps command
@@ -33,7 +37,9 @@ docs/
 │   ├── authentication.md         Authentication and tokens
 │   └── cache.md                  Cache management and offline mode
 ├── workflows/
-│   ├── recommended.md            Recommended team workflow
+│   ├── recommended.md            Workflow hub (solo dev vs team)
+│   ├── solo-dev.md               Solo developer workflow
+│   ├── teams.md                  Team workflow with phased adoption
 │   └── ci-adoption.md            CI adoption strategy
 ├── integrations/
 │   ├── github-actions.md         GitHub Actions integration

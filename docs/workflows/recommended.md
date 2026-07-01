@@ -1,158 +1,101 @@
+---
+title: Recommended Workflow
+description: Choose the right PatchFlow workflow for your team size
+---
+
 # Recommended Workflow
 
-Use PatchFlow in layers. Start with local scans, add baselines, then enforce CI
-gates once the signal is stable. This phased approach avoids blocking teams on
-historical findings while building toward a strong security posture.
+PatchFlow supports two primary workflows depending on your team size and
+security maturity. Choose the one that fits your situation.
 
-## Phase 1: Developer Loop
+## Which Workflow Should I Use?
 
-Run PatchFlow locally before opening a pull request. Treat local scans as fast
-feedback — do not block local work on every medium or low finding.
+| Workflow | Best For | CI Blocking | Baselines | Time Investment |
+| --- | --- | --- | --- | --- |
+| [Solo Developer](./solo-dev.md) | Individual developers, small projects | Optional | Optional | Low |
+| [Team Workflow](./teams.md) | Teams of 2+, shared codebase | Phased | Required for gating | Medium |
+
+## Solo Developer Workflow
+
+For individual developers and small projects. Focus on fast feedback, auto-fixes,
+and suppressing false positives. CI blocking is optional.
 
 ```bash
-# Initialize (once per repository)
-patchflow init
-
-# Quick scan before committing
-patchflow scan run --profile quick
-
-# Explain any unexpected findings
-patchflow explain --rule <rule-id>
-
-# Suppress false positives
-patchflow suppress <rule-id> --file <path> --line <n> --reason "explanation"
+# The solo dev loop
+patchflow scan run --profile quick           # Fast scan before commit
+patchflow explain --rule PY001               # Understand findings
+patchflow fix apply --all --auto-only --yes  # Auto-fix safe issues
+patchflow suppress PY001 --file ... --reason # Suppress false positives
+patchflow pr-review                          # Risk assessment before PR
 ```
 
-**Goal:** Developers get fast feedback and learn to read PatchFlow output. No CI
-blocking yet.
+See [Solo Developer Workflow](./solo-dev.md) for the complete guide.
 
-## Phase 2: Pull Request Loop
+## Team Workflow
 
-Add PatchFlow to CI on pull requests. Generate SARIF for code scanning and a
-Markdown report as an artifact. Do not fail CI yet — just collect signal.
+For teams sharing a codebase. Uses phased adoption: observe, baseline, gate,
+enforce. Baselines are required to avoid blocking on historical findings.
 
-```bash
-# In CI, on pull requests
-patchflow scan run --profile standard --format sarif --output patchflow.sarif
-patchflow report --format markdown --output patchflow-report.md
+```text
+Phase 1: Observe (no block) → Phase 2: Baseline → Phase 3: Gate on new → Phase 4: Enforce
 ```
 
-Upload SARIF to GitHub code scanning and publish the Markdown report as an
-artifact. Review the findings and triage false positives.
+See [Team Workflow](./teams.md) for the complete guide.
 
-**Goal:** CI produces consistent PatchFlow output. Teams review findings without
-CI blocking.
+## CI Adoption Strategy
 
-## Phase 3: Baseline Adoption
+For a detailed phased adoption plan with metrics, tuning, and false positive
+management, see [CI Adoption Strategy](./ci-adoption.md).
 
-For existing repositories with historical findings, create a baseline so CI
-focuses on new issues only.
+## Common Patterns
+
+Regardless of team size, these patterns apply everywhere:
+
+### Start Local, Then CI
+
+Always start with local scans before adding CI gates. This gives you time to
+understand the output, suppress false positives, and tune the configuration.
+
+### Use Baselines For Existing Projects
+
+If your project already has security findings, create a baseline before enabling
+CI gates. This prevents blocking on historical issues while still catching new
+ones.
 
 ```bash
-# On the default branch, run a full scan
 patchflow scan run --profile deep
-
-# Create a baseline
 patchflow baseline create --name v1.0
-
-# Commit the baseline
-git add .patchflow/baselines/v1.0.json
-git commit -m "chore: add PatchFlow baseline v1.0"
-```
-
-Now CI can compare against the baseline:
-
-```bash
 patchflow scan run --new-only --baseline v1.0 --fail-on high
 ```
 
-This blocks CI only on new high or critical findings, avoiding blocking on
-historical issues.
+### Fix Before Suppressing
 
-**Goal:** CI blocks on new high/critical findings. Historical findings are
-tracked separately for burn-down.
+Prefer fixing findings over suppressing them. Use `patchflow fix suggest` to
+see if a safe fix is available. Only suppress findings that are genuinely false
+positives or have compensating controls.
 
-## Phase 4: Enforce CI Gates
+### Use The Right Profile
 
-Once the baseline is stable and false positives are suppressed, enforce CI gates
-on protected branches.
+| Profile | When To Use | Speed |
+| --- | --- | --- |
+| `quick` | Before commit, fast feedback | Fast |
+| `standard` | CI, PR review | Medium |
+| `deep` | Weekly audit, baseline creation | Slow |
 
-```bash
-# Protected branch CI
-patchflow scan run --new-only --baseline v1.0 --fail-on high --format sarif --output patchflow.sarif
-```
+### Upload SARIF To GitHub Code Scanning
 
-**Goal:** CI enforces security quality on new changes. Old findings are
-burned down over time.
+Even without CI blocking, uploading SARIF to GitHub code scanning gives you a
+persistent security dashboard:
 
-## Phase 5: Deep Audit
-
-Schedule periodic deep audits (e.g., weekly) to review the full finding surface,
-including experimental rules.
-
-```bash
-# Weekly audit scan
-patchflow scan run --profile deep --governance-profile audit --format json --output audit-$(date +%Y-%m-%d).json
-```
-
-**Goal:** Comprehensive security review with all rules, including experimental
-ones. Identifies issues before they become critical.
-
-## Pre-PR Review
-
-Before opening a PR, run `pr-review` for a local risk assessment:
-
-```bash
-patchflow pr-review
-```
-
-For richer output:
-
-```bash
-patchflow pr-review --suggest-reviewers --suggest-fixes --format pr-summary
-```
-
-This gives you:
-
-- A risk score and level
-- Findings scoped to your changes
-- Reviewer suggestions
-- Fix proposals
-- A PR-ready summary
-
-## Team Workflow Summary
-
-| Stage | Command | When | Blocking |
-| --- | --- | --- | --- |
-| Developer | `patchflow scan run --profile quick` | Before commit | No |
-| Pre-PR | `patchflow pr-review` | Before opening PR | No |
-| PR CI | `patchflow scan run --profile standard` | On PR | No (Phase 2) |
-| PR CI + baseline | `patchflow scan run --new-only --baseline v1.0 --fail-on high` | On PR | Yes (Phase 4) |
-| Protected branch | `patchflow scan run --new-only --baseline v1.0 --fail-on high` | On push to main | Yes |
-| Audit | `patchflow scan run --profile deep --governance-profile audit` | Weekly | No |
-
-## CI/CD Integration
-
-PatchFlow integrates with major CI/CD platforms:
-
-- [GitHub Actions](../integrations/github-actions.md)
-- [GitLab CI](../integrations/gitlab.md)
-- [Jenkins](../integrations/jenkins.md)
-- [Azure DevOps](../integrations/azure-devops.md)
-- [pre-commit](../integrations/pre-commit.md)
-
-Use `patchflow init <platform>` to generate CI configuration:
-
-```bash
-patchflow init github-actions
-patchflow init gitlab-ci
-patchflow init jenkins
-patchflow init azure-devops
-patchflow init pre-commit
+```yaml
+- uses: github/codeql-action/upload-sarif@v3
+  with:
+    sarif_file: patchflow.sarif
 ```
 
 ## Next Steps
 
+- [Solo Developer Workflow](./solo-dev.md) — Workflow for individuals
+- [Team Workflow](./teams.md) — Workflow for teams
+- [CI Adoption Strategy](./ci-adoption.md) — Detailed adoption guide
 - [GitHub Actions](../integrations/github-actions.md) — CI integration
-- [Baselines](../user-guides/baselines.md) — Baseline management
-- [PR Review](../user-guides/pr-review.md) — Pre-PR risk assessment
