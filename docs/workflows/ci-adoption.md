@@ -172,6 +172,6 @@ Update CI to use the new baseline:
 
 ## Next Steps
 
-- [Recommended Workflow](./recommended.md) — Full workflow guide
-- [GitHub Actions](../integrations/github-actions.md) — CI integration
-- [Baselines](../user-guides/baselines.md) — Baseline management
+- [Recommended Workflow](./recommended) — Full workflow guide
+- [GitHub Actions](../integrations/github-actions) — CI integration
+- [Baselines](../user-guides/baselines) — Baseline management

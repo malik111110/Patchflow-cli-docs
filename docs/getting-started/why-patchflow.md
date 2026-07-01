@@ -216,7 +216,7 @@ one severity scale, with reachability and baselines on top.
 
 ## Next Steps
 
-- [Quickstart](./quickstart.md) — Try PatchFlow in 30 seconds
-- [Core Concepts](./concepts.md) — Understand the analysis pipeline
-- [Local vs Backend](./local-vs-backend.md) — What data leaves your machine
-- [Recommended Workflow](../workflows/recommended.md) — Adoption strategy
+- [Quickstart](./quickstart) — Try PatchFlow in 30 seconds
+- [Core Concepts](./concepts) — Understand the analysis pipeline
+- [Local vs Backend](./local-vs-backend) — What data leaves your machine
+- [Recommended Workflow](../workflows/recommended) — Adoption strategy

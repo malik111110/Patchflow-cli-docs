@@ -117,6 +117,6 @@ Configuration values are resolved in this order (highest priority first):
 
 ## Next Steps
 
-- [Configuration](./configuration.md) — Config file format and profiles
-- [Commands](./commands.md) — Command reference
-- [Generated Commands](./generated-commands.md) — Full command help output
+- [Configuration](./configuration) — Config file format and profiles
+- [Commands](./commands) — Command reference
+- [Generated Commands](./generated-commands) — Full command help output

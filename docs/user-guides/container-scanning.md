@@ -124,6 +124,6 @@ Scan images in CI before pushing to a registry:
 
 ## Next Steps
 
-- [Scan Your Project](./scan.md) — Source code scanning
-- [Dependencies](./dependencies.md) — Dependency analysis
-- [Reports](./reports.md) — Report generation
+- [Scan Your Project](./scan) — Source code scanning
+- [Dependencies](./dependencies) — Dependency analysis
+- [Reports](./reports) — Report generation

@@ -202,6 +202,6 @@ Framework rules are added to the governance registry via
 
 ## Next Steps
 
-- [Scanner Reference](./scanners.md) — Embedded scanner details
-- [Framework Packs](../user-guides/framework-packs.md) — Official pack reference
-- [Custom Rules](../user-guides/custom-rules.md) — Custom rules and overrides
+- [Scanner Reference](./scanners) — Embedded scanner details
+- [Framework Packs](../user-guides/framework-packs) — Official pack reference
+- [Custom Rules](../user-guides/custom-rules) — Custom rules and overrides

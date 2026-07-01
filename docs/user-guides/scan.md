@@ -135,7 +135,7 @@ patchflow scan run --format sarif --output patchflow.sarif
 ```
 
 SARIF 2.1.0 format for GitHub code scanning and other security dashboards. See
-[SARIF Uploads](../integrations/sarif.md).
+[SARIF Uploads](../integrations/sarif).
 
 ## Exit Gates
 
@@ -240,7 +240,7 @@ database.
 Offline mode enables air-gapped scanning in regulated environments where
 outbound network calls are prohibited.
 
-See [Cache Management](./cache.md) for setting up the local OSV database.
+See [Cache Management](./cache) for setting up the local OSV database.
 
 ## License Policy
 
@@ -273,7 +273,7 @@ patchflow scan run --disable-framework spring-security
 ```
 
 `--disable-framework` takes precedence over `--framework`. See
-[Framework Packs](./framework-packs.md) for the full list of packs.
+[Framework Packs](./framework-packs) for the full list of packs.
 
 ## Custom Rules
 
@@ -282,7 +282,7 @@ patchflow scan run --rules .patchflow/rules.yaml
 ```
 
 Loads custom rules from the specified YAML file. Defaults to
-`.patchflow/rules.yaml` if it exists. See [Custom Rules](./custom-rules.md).
+`.patchflow/rules.yaml` if it exists. See [Custom Rules](./custom-rules).
 
 ## Showing Suppressed Findings
 
@@ -320,7 +320,7 @@ patchflow scan run --suggest-fixes
 
 Generates safe fix proposals for detected vulnerabilities. Fix proposals include
 the original code, fixed code, patch, confidence level, and whether the fix is
-auto-applicable. See [Fixes](./fixes.md).
+auto-applicable. See [Fixes](./fixes).
 
 ## Baseline Comparison
 
@@ -329,7 +329,7 @@ patchflow scan run --new-only --baseline v1.0
 ```
 
 Only reports findings not in the named baseline. Requires `--baseline`. See
-[Baselines](./baselines.md).
+[Baselines](./baselines).
 
 ## Not Respecting .gitignore
 
@@ -449,11 +449,11 @@ patchflow scan image alpine:3.18 --timeout 5m --severities CRITICAL,HIGH
 | `--timeout` | duration | 10m | Scan timeout |
 | `--severities` | string | (all) | Comma-separated: `CRITICAL,HIGH,MEDIUM,LOW,INFO` |
 
-See [Container Scanning](./container-scanning.md) for details.
+See [Container Scanning](./container-scanning) for details.
 
 ## Next Steps
 
-- [Dependencies](./dependencies.md) — `deps` command for dependency analysis
-- [Reachability](./reachability.md) — Vulnerable dependency reachability
-- [Reports](./reports.md) — Report generation
-- [Baselines](./baselines.md) — Baseline management
+- [Dependencies](./dependencies) — `deps` command for dependency analysis
+- [Reachability](./reachability) — Vulnerable dependency reachability
+- [Reports](./reports) — Report generation
+- [Baselines](./baselines) — Baseline management

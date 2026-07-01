@@ -180,7 +180,7 @@ type FrameworkRule struct {
 | `MatchTaint` | Source-to-sink taint tracking | Data flow across variables or helpers |
 | `MatchTemplate` | Template engine output issues | ERB, Jinja, Razor, Blade, JSX output |
 
-See [Framework Rule Packs](./rule-packs.md) and [Adding a Pack](./adding-packs.md)
+See [Framework Rule Packs](./rule-packs) and [Adding a Pack](./adding-packs)
 for pack development details.
 
 ## SCA Pipeline
@@ -228,7 +228,7 @@ The governance registry (`internal/rules/`) manages rule metadata:
 - **CWE/OWASP mapping**: Each rule maps to CWE and OWASP categories
 - **Blocking eligibility**: Rules can block CI based on maturity and profile
 
-See [Rule Governance](../reference/rules-governance.md) for details.
+See [Rule Governance](../reference/rules-governance) for details.
 
 ## Report Generation
 
@@ -247,6 +247,6 @@ The SBOM generator (`internal/sbom/`) produces:
 
 ## Next Steps
 
-- [Framework Rule Packs](./rule-packs.md) — Pack development guide
-- [Adding a Framework Pack](./adding-packs.md) — Step-by-step pack creation
-- [Rule Governance](../reference/rules-governance.md) — Maturity and profiles
+- [Framework Rule Packs](./rule-packs) — Pack development guide
+- [Adding a Framework Pack](./adding-packs) — Step-by-step pack creation
+- [Rule Governance](../reference/rules-governance) — Maturity and profiles

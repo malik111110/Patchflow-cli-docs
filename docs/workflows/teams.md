@@ -349,7 +349,7 @@ jobs:
 
 ## Next Steps
 
-- [Solo Developer Workflow](./solo-dev.md) — Simpler workflow for individuals
-- [CI Adoption Strategy](./ci-adoption.md) — Detailed adoption guide
-- [Baselines](../user-guides/baselines.md) — Baseline management
-- [GitHub Actions](../integrations/github-actions.md) — CI integration
+- [Solo Developer Workflow](./solo-dev) — Simpler workflow for individuals
+- [CI Adoption Strategy](./ci-adoption) — Detailed adoption guide
+- [Baselines](../user-guides/baselines) — Baseline management
+- [GitHub Actions](../integrations/github-actions) — CI integration

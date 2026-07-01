@@ -103,6 +103,6 @@ SARIF is a standard format supported by many tools:
 
 ## Next Steps
 
-- [GitHub Actions](./github-actions.md) — Full CI integration
-- [Reports](../user-guides/reports.md) — All report formats
-- [Scan Your Project](../user-guides/scan.md) — Scan command reference
+- [GitHub Actions](./github-actions) — Full CI integration
+- [Reports](../user-guides/reports) — All report formats
+- [Scan Your Project](../user-guides/scan) — Scan command reference

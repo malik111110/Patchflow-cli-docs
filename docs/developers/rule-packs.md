@@ -177,6 +177,6 @@ and `internal/rules`.
 
 ## Next Steps
 
-- [Adding a Framework Pack](./adding-packs.md) — Step-by-step pack creation
-- [Architecture](./architecture.md) — Detailed architecture
-- [Rule Governance](../reference/rules-governance.md) — Maturity and profiles
+- [Adding a Framework Pack](./adding-packs) — Step-by-step pack creation
+- [Architecture](./architecture) — Detailed architecture
+- [Rule Governance](../reference/rules-governance) — Maturity and profiles

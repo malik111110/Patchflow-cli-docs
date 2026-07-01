@@ -140,7 +140,7 @@ Rules move through maturity levels:
 | `enterprise` | Large regression corpus, low false-positive rate | All profiles, blocking |
 
 Framework rules are promoted only when fixtures and real-repo benchmark results
-support the change. See [Rule Governance](../reference/rules-governance.md) for
+support the change. See [Rule Governance](../reference/rules-governance) for
 details.
 
 ## Import Cycle Notes
@@ -156,8 +156,8 @@ details.
 
 ## Next Steps
 
-- [Architecture](./architecture.md) — Detailed architecture deep-dive
-- [Framework Rule Packs](./rule-packs.md) — Pack development guide
-- [Adding a Framework Pack](./adding-packs.md) — Step-by-step pack creation
-- [Developer CI/CD](./ci-cd.md) — CI for the CLI and docs
-- [Benchmarks](./benchmarks.md) — Real-repo benchmark suite
+- [Architecture](./architecture) — Detailed architecture deep-dive
+- [Framework Rule Packs](./rule-packs) — Pack development guide
+- [Adding a Framework Pack](./adding-packs) — Step-by-step pack creation
+- [Developer CI/CD](./ci-cd) — CI for the CLI and docs
+- [Benchmarks](./benchmarks) — Real-repo benchmark suite

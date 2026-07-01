@@ -332,6 +332,6 @@ Promote rules to `beta` or `stable` as they gain:
 
 ## Next Steps
 
-- [Framework Rule Packs](./rule-packs.md) — Pack design guide
-- [Benchmarks](./benchmarks.md) — Benchmark suite
-- [Rule Governance](../reference/rules-governance.md) — Maturity levels
+- [Framework Rule Packs](./rule-packs) — Pack design guide
+- [Benchmarks](./benchmarks) — Benchmark suite
+- [Rule Governance](../reference/rules-governance) — Maturity levels

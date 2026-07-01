@@ -352,8 +352,8 @@ Scan reports many findings that are not real vulnerabilities.
    patchflow scan run --taint-depth 1
    ```
 
-5. **See [Suppressions](../user-guides/suppressions.md) and
-   [Custom Rules](../user-guides/custom-rules.md) for more options.**
+5. **See [Suppressions](../user-guides/suppressions) and
+   [Custom Rules](../user-guides/custom-rules) for more options.**
 
 ## External Tools Not Detected
 
@@ -480,11 +480,11 @@ go build -o patchflow .
 sudo mv patchflow /usr/local/bin/
 ```
 
-See [Installation](./installation.md) for all installation methods.
+See [Installation](./installation) for all installation methods.
 
 ## Next Steps
 
-- [Quickstart](./quickstart.md) — Get started with PatchFlow
-- [Scan Your Project](../user-guides/scan.md) — All scan flags
-- [Suppressions](../user-guides/suppressions.md) — Reduce false positives
-- [Cache Management](../user-guides/cache.md) — Offline mode setup
+- [Quickstart](./quickstart) — Get started with PatchFlow
+- [Scan Your Project](../user-guides/scan) — All scan flags
+- [Suppressions](../user-guides/suppressions) — Reduce false positives
+- [Cache Management](../user-guides/cache) — Offline mode setup

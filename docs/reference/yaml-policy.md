@@ -291,6 +291,6 @@ Examples: `ACME-001`, `MYAPP-XSS-001`, `TEAM-SEC-002`
 
 ## Next Steps
 
-- [Custom Rules](../user-guides/custom-rules.md) — User guide for custom rules
-- [Framework Packs](../user-guides/framework-packs.md) — Official pack reference
-- [Rule Governance](./rules-governance.md) — Maturity and profiles
+- [Custom Rules](../user-guides/custom-rules) — User guide for custom rules
+- [Framework Packs](../user-guides/framework-packs) — Official pack reference
+- [Rule Governance](./rules-governance) — Maturity and profiles

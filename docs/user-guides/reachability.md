@@ -141,6 +141,6 @@ unsupported languages will receive `UNKNOWN` reachability.
 
 ## Next Steps
 
-- [Dependencies](./dependencies.md) — List and analyze dependencies
-- [Scan Your Project](./scan.md) — Full security analysis with reachability
-- [Reports](./reports.md) — Include reachability in reports
+- [Dependencies](./dependencies) — List and analyze dependencies
+- [Scan Your Project](./scan) — Full security analysis with reachability
+- [Reports](./reports) — Include reachability in reports

@@ -128,7 +128,7 @@ The custom rules file (`.patchflow/rules.yaml`) contains:
 - Framework pack selection and overrides
 - Custom regex rules
 
-See [YAML Policy Reference](./yaml-policy.md) for the full format.
+See [YAML Policy Reference](./yaml-policy) for the full format.
 
 ## Config Command Reference
 
@@ -164,10 +164,10 @@ The cache directory is resolved in this order (highest priority first):
 The project hash is a SHA256 of the absolute project root path (first 16 hex
 characters).
 
-See [Cache Management](../user-guides/cache.md) for details.
+See [Cache Management](../user-guides/cache) for details.
 
 ## Next Steps
 
-- [YAML Policy Reference](./yaml-policy.md) — Custom rules YAML format
-- [Global Flags](./global-flags.md) — CLI flags reference
-- [Cache Management](../user-guides/cache.md) — Cache configuration
+- [YAML Policy Reference](./yaml-policy) — Custom rules YAML format
+- [Global Flags](./global-flags) — CLI flags reference
+- [Cache Management](../user-guides/cache) — Cache configuration

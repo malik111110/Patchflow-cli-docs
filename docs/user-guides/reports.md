@@ -54,7 +54,7 @@ reports are automatically saved there in addition to the specified output path.
 ## SARIF for CI
 
 SARIF is the preferred format for CI integration. See
-[SARIF Uploads](../integrations/sarif.md) for GitHub code scanning integration.
+[SARIF Uploads](../integrations/sarif) for GitHub code scanning integration.
 
 ## Export Formats (scan export)
 
@@ -111,6 +111,6 @@ Keep these outputs together in CI:
 
 ## Next Steps
 
-- [Baselines](./baselines.md) — Focus on new findings
-- [SARIF Uploads](../integrations/sarif.md) — CI integration
-- [Scan Your Project](./scan.md) — Scan command reference
+- [Baselines](./baselines) — Focus on new findings
+- [SARIF Uploads](../integrations/sarif) — CI integration
+- [Scan Your Project](./scan) — Scan command reference

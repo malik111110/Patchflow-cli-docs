@@ -131,6 +131,6 @@ The suppression matching is:
 
 ## Next Steps
 
-- [Explain](./explain.md) — Understand findings before suppressing
-- [Custom Rules](./custom-rules.md) — Reduce false positives with sanitizers
-- [Scan Your Project](./scan.md) — Run scans with `--show-suppressed`
+- [Explain](./explain) — Understand findings before suppressing
+- [Custom Rules](./custom-rules) — Reduce false positives with sanitizers
+- [Scan Your Project](./scan) — Run scans with `--show-suppressed`

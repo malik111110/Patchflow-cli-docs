@@ -55,7 +55,7 @@ SCA identifies vulnerable dependencies in your project.
 
 **Offline mode:** Run `patchflow cache update` to download a local OSV database.
 Then use `--offline` to scan without any API calls. See
-[Cache Management](../user-guides/cache.md).
+[Cache Management](../user-guides/cache).
 
 **Max depth by profile:**
 
@@ -80,7 +80,7 @@ multi-engine approach:
 | `treesitter-ast` | Beta | ~50+ AST rules via tree-sitter for Python, JS/TS, Ruby, PHP, Java, C#, Rust. Structural matching beyond regex. |
 | `taint-ssa` | Stable | Go SSA-based taint analysis. Source-to-sink tracking with inter-procedural call-hop depth. |
 | `taint-patterns` | Beta | ~30 tree-sitter taint rules for Python, JS/TS, Ruby, PHP, Java, C#. Source-to-sink tracking with sanitizer detection. |
-| `framework-packs` | Experimental | 17 official framework rule packs. See [Framework Packs](../user-guides/framework-packs.md). |
+| `framework-packs` | Experimental | 17 official framework rule packs. See [Framework Packs](../user-guides/framework-packs). |
 
 ### External Tools (optional supplements)
 
@@ -136,7 +136,7 @@ codebase, helping you prioritize which vulnerabilities to fix first.
 
 Use `patchflow reachability --package <name> --explain` to see the evidence
 behind a reachability assessment. See
-[Reachability](../user-guides/reachability.md) for details.
+[Reachability](../user-guides/reachability) for details.
 
 ## Risk Scoring
 
@@ -214,7 +214,7 @@ A finding is "blocking-eligible" in CI when:
 3. The finding severity meets the `--fail-on` threshold
 
 Use `patchflow rules maturity` to see the governance coverage report. See
-[Rule Governance](../reference/rules-governance.md) for details.
+[Rule Governance](../reference/rules-governance) for details.
 
 ## Framework Packs
 
@@ -245,7 +245,7 @@ SAST engines.
 | `echo` | JavaScript | Request sources, redirects, response output |
 
 Auto-detection is the default. Override with `--framework` and
-`--disable-framework`. See [Framework Packs](../user-guides/framework-packs.md)
+`--disable-framework`. See [Framework Packs](../user-guides/framework-packs)
 for details.
 
 ## Suppression Directives
@@ -268,7 +268,7 @@ The comment syntax adapts to the file type:
 - `//` for Go, JS/TS, Java, C/C++, C#, Rust, Swift, Kotlin, Scala, PHP
 
 Use `patchflow suppress` to add directives programmatically. See
-[Suppressions](../user-guides/suppressions.md) for details.
+[Suppressions](../user-guides/suppressions) for details.
 
 ## Baselines
 
@@ -284,10 +284,10 @@ Baselines store a snapshot of known findings so CI can focus on new issues.
 
 Baselines use stable semantic fingerprints (rule ID + scanner + normalized path +
 normalized snippet) so findings survive line-number shifts from unrelated edits.
-See [Baselines](../user-guides/baselines.md) for the full workflow.
+See [Baselines](../user-guides/baselines) for the full workflow.
 
 ## Next Steps
 
-- [Scan Your Project](../user-guides/scan.md) — All scan flags and profiles
-- [Framework Packs](../user-guides/framework-packs.md) — Framework-specific rules
-- [Recommended Workflow](../workflows/recommended.md) — Team adoption strategy
+- [Scan Your Project](../user-guides/scan) — All scan flags and profiles
+- [Framework Packs](../user-guides/framework-packs) — Framework-specific rules
+- [Recommended Workflow](../workflows/recommended) — Team adoption strategy

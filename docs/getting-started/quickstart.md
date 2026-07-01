@@ -26,7 +26,7 @@ below goes deeper, but if you just want to see the tool work, start there.
 ## Prerequisites
 
 - PatchFlow CLI installed as `patchflow` on your `PATH` (see
-  [Installation](./installation.md))
+  [Installation](./installation))
 - Git installed and available on `PATH`
 - A Git repository as your working directory
 
@@ -77,7 +77,7 @@ This creates a `.patchflow/` directory with:
 
 The `.patchflow/` directory is the project-level home for PatchFlow artifacts.
 Baselines and reports are stored here. Custom rules go in
-`.patchflow/rules.yaml` (see [Custom Rules](../user-guides/custom-rules.md)).
+`.patchflow/rules.yaml` (see [Custom Rules](../user-guides/custom-rules)).
 
 ## Step 2: Run Your First Scan
 
@@ -182,8 +182,8 @@ Generating markdown report...
 Report written to patchflow-report.md (14.2 KB)
 ```
 
-See [Reports](../user-guides/reports.md) for format details and
-[SARIF Uploads](../integrations/sarif.md) for CI integration.
+See [Reports](../user-guides/reports) for format details and
+[SARIF Uploads](../integrations/sarif) for CI integration.
 
 ## Step 4: Explain a Finding
 
@@ -246,7 +246,7 @@ Suppression:
 - Whether it would block a PR (based on `--fail-on` thresholds)
 
 For framework rules, `explain` also shows sources, sinks, sanitizers, safe
-patterns, and exclusions. See [Explain](../user-guides/explain.md) for details.
+patterns, and exclusions. See [Explain](../user-guides/explain) for details.
 
 ## Step 5: Create a Baseline
 
@@ -275,7 +275,7 @@ Stored at: .patchflow/baselines/v1.0.json
 
 Baselines use stable semantic fingerprints (rule ID + scanner + normalized path +
 normalized snippet) so findings survive line-number shifts from unrelated edits.
-See [Baselines](../user-guides/baselines.md) for the full workflow.
+See [Baselines](../user-guides/baselines) for the full workflow.
 
 ## Step 6: Simulate a PR Review
 
@@ -326,7 +326,7 @@ This analyzes your current branch changes and produces:
 - Optional inline annotations (`--annotations`)
 - Optional fix proposals (`--suggest-fixes`)
 
-See [PR Review](../user-guides/pr-review.md) for details.
+See [PR Review](../user-guides/pr-review) for details.
 
 ## Step 7: Set Up CI (GitHub Actions)
 
@@ -363,8 +363,8 @@ critical findings:
 - run: patchflow scan run --new-only --baseline v1.0 --fail-on high --format sarif --output patchflow.sarif
 ```
 
-See [GitHub Actions](../integrations/github-actions.md) for the complete
-workflow and [CI Adoption Strategy](../workflows/ci-adoption.md) for the phased
+See [GitHub Actions](../integrations/github-actions) for the complete
+workflow and [CI Adoption Strategy](../workflows/ci-adoption) for the phased
 adoption plan.
 
 ## Step 8: Authenticate (Optional)
@@ -382,8 +382,8 @@ patchflow auth status
 
 In CI, provide the token via an environment variable. Never store tokens in
 repository configuration files. See
-[Authentication](../user-guides/authentication.md) and
-[Local vs Backend](./local-vs-backend.md) for details.
+[Authentication](../user-guides/authentication) and
+[Local vs Backend](./local-vs-backend) for details.
 
 ## Verify Your Environment
 
@@ -449,9 +449,9 @@ patchflow scan run --new-only --baseline v1.0 --fail-on high
 
 ## Next Steps
 
-- [Core Concepts](./concepts.md) — Understand the analysis pipeline
-- [Scan Your Project](../user-guides/scan.md) — All scan flags and profiles
-- [Why PatchFlow](./why-patchflow.md) — PatchFlow vs stacking Trivy + Semgrep + Gitleaks
-- [Local vs Backend](./local-vs-backend.md) — What data leaves your machine
-- [Common Errors](./common-errors.md) — Troubleshooting guide
-- [Recommended Workflow](../workflows/recommended.md) — Team adoption strategy
+- [Core Concepts](./concepts) — Understand the analysis pipeline
+- [Scan Your Project](../user-guides/scan) — All scan flags and profiles
+- [Why PatchFlow](./why-patchflow) — PatchFlow vs stacking Trivy + Semgrep + Gitleaks
+- [Local vs Backend](./local-vs-backend) — What data leaves your machine
+- [Common Errors](./common-errors) — Troubleshooting guide
+- [Recommended Workflow](../workflows/recommended) — Team adoption strategy

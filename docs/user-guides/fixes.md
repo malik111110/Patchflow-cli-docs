@@ -249,6 +249,6 @@ include fix proposals in the scan output. Use the `fix` command to apply them.
 
 ## Next Steps
 
-- [Explain](./explain.md) — Understand findings before fixing
-- [Suppressions](./suppressions.md) — Suppress false positives
-- [Scan Your Project](./scan.md) — Run scans with `--suggest-fixes`
+- [Explain](./explain) — Understand findings before fixing
+- [Suppressions](./suppressions) — Suppress false positives
+- [Scan Your Project](./scan) — Run scans with `--suggest-fixes`

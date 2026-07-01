@@ -190,6 +190,6 @@ upgrading.
 
 ## Next Steps
 
-- [Scan Your Project](./scan.md) — Use `--offline` for air-gapped scans
-- [Configuration](./configuration.md) — Cache directory configuration
-- [Dependencies](./dependencies.md) — Dependency analysis with OSV data
+- [Scan Your Project](./scan) — Use `--offline` for air-gapped scans
+- [Configuration](./configuration) — Cache directory configuration
+- [Dependencies](./dependencies) — Dependency analysis with OSV data

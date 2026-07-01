@@ -67,7 +67,7 @@ Code Scanning.
 
 ## With Baseline and Exit Gate
 
-After creating a baseline (see [Baselines](../user-guides/baselines.md)):
+After creating a baseline (see [Baselines](../user-guides/baselines)):
 
 ```yaml
 - run: patchflow scan run --new-only --baseline v1.0 --fail-on high --format sarif --output patchflow.sarif
@@ -187,6 +187,6 @@ PatchFlow also provides a GitHub Action for simpler integration:
 
 ## Next Steps
 
-- [SARIF Uploads](./sarif.md) — SARIF format details
-- [Baselines](../user-guides/baselines.md) — Baseline management
-- [Recommended Workflow](../workflows/recommended.md) — Team adoption
+- [SARIF Uploads](./sarif) — SARIF format details
+- [Baselines](../user-guides/baselines) — Baseline management
+- [Recommended Workflow](../workflows/recommended) — Team adoption

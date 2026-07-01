@@ -114,7 +114,7 @@ patchflow explain --rule PF-EXPRESS-REDIRECT-001
 ```
 
 Shows the rule's sources, sinks, sanitizers, safe patterns, exclusions, and
-suppression format. See [Explain](./explain.md) for details.
+suppression format. See [Explain](./explain) for details.
 
 ## Configuring Packs in YAML
 
@@ -207,7 +207,7 @@ Rules are promoted to `beta` or `stable` as they gain test fixtures and
 regression coverage, which activates them in PR/CI profiles and makes high and
 critical findings blocking-eligible.
 
-See [Rule Governance](../reference/rules-governance.md) for maturity levels and
+See [Rule Governance](../reference/rules-governance) for maturity levels and
 profiles.
 
 ## Recommended Policy
@@ -217,6 +217,6 @@ triaged. Keep each override small, named, and reviewed like production code.
 
 ## Next Steps
 
-- [Custom Rules](./custom-rules.md) — Full YAML policy reference
-- [Explain](./explain.md) — Inspect framework rules in detail
-- [Rule Governance](../reference/rules-governance.md) — Maturity and profiles
+- [Custom Rules](./custom-rules) — Full YAML policy reference
+- [Explain](./explain) — Inspect framework rules in detail
+- [Rule Governance](../reference/rules-governance) — Maturity and profiles

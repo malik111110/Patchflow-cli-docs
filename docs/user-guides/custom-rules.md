@@ -247,6 +247,6 @@ patchflow rules list --json
 
 ## Next Steps
 
-- [Framework Packs](./framework-packs.md) — Official pack reference
-- [Rule Governance](../reference/rules-governance.md) — Maturity and profiles
-- [Suppressions](./suppressions.md) — Suppress false positives in code
+- [Framework Packs](./framework-packs) — Official pack reference
+- [Rule Governance](../reference/rules-governance) — Maturity and profiles
+- [Suppressions](./suppressions) — Suppress false positives in code

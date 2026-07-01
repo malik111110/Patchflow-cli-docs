@@ -67,7 +67,7 @@ patchflow version
 - Go 1.25 or later
 - Git (for repository detection and diff analysis)
 - Internet access for OSV.dev queries (unless using offline mode with a local
-  OSV database — see [Cache Management](../user-guides/cache.md))
+  OSV database — see [Cache Management](../user-guides/cache))
 
 ## Docker / Podman
 
@@ -150,6 +150,6 @@ to see which tools are available in your environment.
 
 ## Next Steps
 
-- [Quickstart](./quickstart.md) — Run your first scan
-- [Core Concepts](./concepts.md) — Understand SCA, SAST, reachability, risk
+- [Quickstart](./quickstart) — Run your first scan
+- [Core Concepts](./concepts) — Understand SCA, SAST, reachability, risk
   scoring, and governance

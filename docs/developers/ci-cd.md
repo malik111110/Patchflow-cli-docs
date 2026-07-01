@@ -66,7 +66,7 @@ results/<YYYY-MM>/<repo-name>/patchflow.sarif
 results/<YYYY-MM>/summary.json
 ```
 
-See [Benchmarks](./benchmarks.md) for the benchmark suite documentation.
+See [Benchmarks](./benchmarks) for the benchmark suite documentation.
 
 ## Build the CLI Binary
 
@@ -201,6 +201,6 @@ pre-commit hook:
 
 ## Next Steps
 
-- [Benchmarks](./benchmarks.md) — Benchmark suite
-- [Architecture](./architecture.md) — Internal architecture
-- [Overview](./overview.md) — Package overview
+- [Benchmarks](./benchmarks) — Benchmark suite
+- [Architecture](./architecture) — Internal architecture
+- [Overview](./overview) — Package overview

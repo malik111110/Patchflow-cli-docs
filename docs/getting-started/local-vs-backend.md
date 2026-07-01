@@ -1,5 +1,5 @@
 ---
-title: Local vs Backend: What Data Leaves Your Machine
+title: "Local vs Backend: What Data Leaves Your Machine"
 description: What data PatchFlow sends where, for trust and compliance verification
 ---
 
@@ -131,7 +131,7 @@ Offline mode:
 - Skips license metadata fetches
 - Enables air-gapped scanning in regulated environments
 
-See [Cache Management](../user-guides/cache.md) for details.
+See [Cache Management](../user-guides/cache) for details.
 
 ## Backend-Connected Features (Optional)
 
@@ -222,6 +222,6 @@ explicitly use backend-connected features.
 
 ## Next Steps
 
-- [Quickstart](./quickstart.md) — Get started with local scanning
-- [Cache Management](../user-guides/cache.md) — Offline mode setup
-- [Authentication](../user-guides/authentication.md) — When authentication is needed
+- [Quickstart](./quickstart) — Get started with local scanning
+- [Cache Management](../user-guides/cache) — Offline mode setup
+- [Authentication](../user-guides/authentication) — When authentication is needed

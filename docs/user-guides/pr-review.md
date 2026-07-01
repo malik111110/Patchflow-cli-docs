@@ -109,7 +109,7 @@ classified as:
 - **Auto-applicable**: Safe to apply without review
 - **Needs review**: Requires human judgment before applying
 
-See [Fixes](./fixes.md) for the fix command.
+See [Fixes](./fixes) for the fix command.
 
 ## Skipping Analysis Stages
 
@@ -181,10 +181,10 @@ patchflow review status JOB_ID --watch
 ```
 
 These commands require authentication (`patchflow login`) and a backend
-connection. See [Authentication](./authentication.md).
+connection. See [Authentication](./authentication).
 
 ## Next Steps
 
-- [Fixes](./fixes.md) — Apply fix proposals
-- [Explain](./explain.md) — Investigate findings
-- [Recommended Workflow](../workflows/recommended.md) — Team adoption
+- [Fixes](./fixes) — Apply fix proposals
+- [Explain](./explain) — Investigate findings
+- [Recommended Workflow](../workflows/recommended) — Team adoption

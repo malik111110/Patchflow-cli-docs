@@ -137,6 +137,6 @@ in the pipeline UI.
 
 ## Next Steps
 
-- [SARIF Uploads](./sarif.md) — SARIF format details
-- [Baselines](../user-guides/baselines.md) — Baseline management
-- [Recommended Workflow](../workflows/recommended.md) — Team adoption
+- [SARIF Uploads](./sarif) — SARIF format details
+- [Baselines](../user-guides/baselines) — Baseline management
+- [Recommended Workflow](../workflows/recommended) — Team adoption

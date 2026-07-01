@@ -6,7 +6,7 @@ description: Curated command map for all PatchFlow CLI commands
 # Commands
 
 This page provides a curated command map. For the full generated command help
-with every flag, see [Generated Commands](./generated-commands.md).
+with every flag, see [Generated Commands](./generated-commands).
 
 ## Command Tree
 
@@ -225,6 +225,6 @@ patchflow completion powershell
 
 ## Next Steps
 
-- [Generated Commands](./generated-commands.md) — Full command help output
-- [Global Flags](./global-flags.md) — Global CLI flags
-- [Configuration](./configuration.md) — Config file reference
+- [Generated Commands](./generated-commands) — Full command help output
+- [Global Flags](./global-flags) — Global CLI flags
+- [Configuration](./configuration) — Config file reference

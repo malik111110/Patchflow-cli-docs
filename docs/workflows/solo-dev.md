@@ -209,7 +209,7 @@ output and decide which findings to fix, suppress, or track for later.
 
 ## Next Steps
 
-- [Quickstart](../getting-started/quickstart.md) — Get started in 30 seconds
-- [Fixes](../user-guides/fixes.md) — Auto-fix security findings
-- [Suppressions](../user-guides/suppressions.md) — Suppress false positives
-- [Team Workflow](./teams.md) — Workflow for larger teams
+- [Quickstart](../getting-started/quickstart) — Get started in 30 seconds
+- [Fixes](../user-guides/fixes) — Auto-fix security findings
+- [Suppressions](../user-guides/suppressions) — Suppress false positives
+- [Team Workflow](./teams) — Workflow for larger teams

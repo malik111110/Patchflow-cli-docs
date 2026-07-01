@@ -99,6 +99,6 @@ pre-commit hook would check.
 
 ## Next Steps
 
-- [GitHub Actions](./github-actions.md) — CI integration
-- [Recommended Workflow](../workflows/recommended.md) — Team adoption
-- [Scan Your Project](../user-guides/scan.md) — All scan flags
+- [GitHub Actions](./github-actions) — CI integration
+- [Recommended Workflow](../workflows/recommended) — Team adoption
+- [Scan Your Project](../user-guides/scan) — All scan flags

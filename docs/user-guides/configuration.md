@@ -146,7 +146,7 @@ Created by `patchflow init`, this file contains project-specific settings. The
 - `baselines/` — Baseline snapshots
 - `reports/` — Generated reports
 - `rules.yaml` — Custom rules and framework overrides (see
-  [Custom Rules](./custom-rules.md))
+  [Custom Rules](./custom-rules))
 
 ## Global CLI Flags
 
@@ -172,10 +172,10 @@ The cache directory is resolved in the following order (highest priority first):
 4. `~/.cache/patchflow/<project-hash>/` (XDG default)
 
 The project hash is a SHA256 of the absolute project root path (first 16 hex
-characters). See [Cache Management](./cache.md) for details.
+characters). See [Cache Management](./cache) for details.
 
 ## Next Steps
 
-- [Authentication](./authentication.md) — Login and token management
-- [Cache Management](./cache.md) — Cache directory and local OSV database
-- [Custom Rules](./custom-rules.md) — Project-level rules YAML
+- [Authentication](./authentication) — Login and token management
+- [Cache Management](./cache) — Cache directory and local OSV database
+- [Custom Rules](./custom-rules) — Project-level rules YAML

@@ -192,6 +192,6 @@ A framework pack is not ready for promotion from `experimental` to `beta` or
 
 ## Next Steps
 
-- [Framework Rule Packs](./rule-packs.md) — Pack development
-- [Adding a Framework Pack](./adding-packs.md) — Pack creation guide
-- [Developer CI/CD](./ci-cd.md) — CI for the CLI
+- [Framework Rule Packs](./rule-packs) — Pack development
+- [Adding a Framework Pack](./adding-packs) — Pack creation guide
+- [Developer CI/CD](./ci-cd) — CI for the CLI

@@ -12,8 +12,8 @@ security maturity. Choose the one that fits your situation.
 
 | Workflow | Best For | CI Blocking | Baselines | Time Investment |
 | --- | --- | --- | --- | --- |
-| [Solo Developer](./solo-dev.md) | Individual developers, small projects | Optional | Optional | Low |
-| [Team Workflow](./teams.md) | Teams of 2+, shared codebase | Phased | Required for gating | Medium |
+| [Solo Developer](./solo-dev) | Individual developers, small projects | Optional | Optional | Low |
+| [Team Workflow](./teams) | Teams of 2+, shared codebase | Phased | Required for gating | Medium |
 
 ## Solo Developer Workflow
 
@@ -29,7 +29,7 @@ patchflow suppress PY001 --file ... --reason # Suppress false positives
 patchflow pr-review                          # Risk assessment before PR
 ```
 
-See [Solo Developer Workflow](./solo-dev.md) for the complete guide.
+See [Solo Developer Workflow](./solo-dev) for the complete guide.
 
 ## Team Workflow
 
@@ -40,12 +40,12 @@ enforce. Baselines are required to avoid blocking on historical findings.
 Phase 1: Observe (no block) → Phase 2: Baseline → Phase 3: Gate on new → Phase 4: Enforce
 ```
 
-See [Team Workflow](./teams.md) for the complete guide.
+See [Team Workflow](./teams) for the complete guide.
 
 ## CI Adoption Strategy
 
 For a detailed phased adoption plan with metrics, tuning, and false positive
-management, see [CI Adoption Strategy](./ci-adoption.md).
+management, see [CI Adoption Strategy](./ci-adoption).
 
 ## Common Patterns
 
@@ -95,7 +95,7 @@ persistent security dashboard:
 
 ## Next Steps
 
-- [Solo Developer Workflow](./solo-dev.md) — Workflow for individuals
-- [Team Workflow](./teams.md) — Workflow for teams
-- [CI Adoption Strategy](./ci-adoption.md) — Detailed adoption guide
-- [GitHub Actions](../integrations/github-actions.md) — CI integration
+- [Solo Developer Workflow](./solo-dev) — Workflow for individuals
+- [Team Workflow](./teams) — Workflow for teams
+- [CI Adoption Strategy](./ci-adoption) — Detailed adoption guide
+- [GitHub Actions](../integrations/github-actions) — CI integration

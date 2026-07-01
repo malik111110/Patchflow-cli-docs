@@ -140,6 +140,6 @@ tokens to repository files.
 
 ## Next Steps
 
-- [Configuration](./configuration.md) — Config file and profiles
-- [PR Review](./pr-review.md) — Local PR risk review
-- [GitHub Actions](../integrations/github-actions.md) — CI integration
+- [Configuration](./configuration) — Config file and profiles
+- [PR Review](./pr-review) — Local PR risk review
+- [GitHub Actions](../integrations/github-actions) — CI integration

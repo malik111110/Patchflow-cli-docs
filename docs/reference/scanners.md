@@ -226,7 +226,7 @@ Framework-specific rule packs.
 | Maturity | Experimental (default; promoted per-pack) |
 | Package | `internal/sast/frameworks/` |
 
-See [Framework Packs](../user-guides/framework-packs.md) for the full pack
+See [Framework Packs](../user-guides/framework-packs) for the full pack
 reference.
 
 ## External Tools
@@ -283,6 +283,6 @@ patterns and their fixed equivalents. Used by `patchflow explain` and
 
 ## Next Steps
 
-- [Rule Governance](./rules-governance.md) — Maturity and profiles
-- [Framework Packs](../user-guides/framework-packs.md) — Official pack reference
-- [Architecture](../developers/architecture.md) — Internal architecture
+- [Rule Governance](./rules-governance) — Maturity and profiles
+- [Framework Packs](../user-guides/framework-packs) — Official pack reference
+- [Architecture](../developers/architecture) — Internal architecture

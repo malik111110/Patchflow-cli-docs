@@ -162,6 +162,6 @@ PatchFlow parses dependency manifests from the following ecosystems:
 
 ## Next Steps
 
-- [Reachability](./reachability.md) — Check if vulnerable dependencies are used
-- [Scan Your Project](./scan.md) — Full security analysis
-- [Container Scanning](./container-scanning.md) — Scan container images
+- [Reachability](./reachability) — Check if vulnerable dependencies are used
+- [Scan Your Project](./scan) — Full security analysis
+- [Container Scanning](./container-scanning) — Scan container images

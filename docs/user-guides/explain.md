@@ -154,6 +154,6 @@ data flows from request parameters to SQL queries.
 
 ## Next Steps
 
-- [Suppressions](./suppressions.md) — Suppress false positives
-- [Fixes](./fixes.md) — Apply fixes to findings
-- [Framework Packs](./framework-packs.md) — Framework rule reference
+- [Suppressions](./suppressions) — Suppress false positives
+- [Fixes](./fixes) — Apply fixes to findings
+- [Framework Packs](./framework-packs) — Framework rule reference

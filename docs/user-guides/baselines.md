@@ -190,11 +190,11 @@ The modern `patchflow baseline` commands are preferred.
 
 ## CI Integration
 
-See [GitHub Actions](../integrations/github-actions.md) and
-[GitLab CI](../integrations/gitlab.md) for baseline-aware CI pipeline examples.
+See [GitHub Actions](../integrations/github-actions) and
+[GitLab CI](../integrations/gitlab) for baseline-aware CI pipeline examples.
 
 ## Next Steps
 
-- [Reports](./reports.md) — Generate reports from scans
-- [Recommended Workflow](../workflows/recommended.md) — Team adoption strategy
-- [GitHub Actions](../integrations/github-actions.md) — CI integration
+- [Reports](./reports) — Generate reports from scans
+- [Recommended Workflow](../workflows/recommended) — Team adoption strategy
+- [GitHub Actions](../integrations/github-actions) — CI integration
