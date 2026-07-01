@@ -19,7 +19,8 @@ docs/
 │   ├── concepts.md               Core concepts (SCA, SAST, reachability, risk)
 │   ├── why-patchflow.md          Why PatchFlow vs stacking Trivy + Semgrep + Gitleaks
 │   ├── local-vs-backend.md       What data leaves your machine (trust/privacy)
-│   └── common-errors.md          Troubleshooting common errors
+│   ├── common-errors.md          Troubleshooting common errors
+│   └── changelog.md              Version history and release notes
 ├── user-guides/
 │   ├── scan.md                   Scan command reference
 │   ├── dependencies.md           deps command

@@ -5,11 +5,17 @@ description: Local-first security scanner for modern engineering teams
 
 # PatchFlow CLI Documentation
 
+<Badge type="version" text="v0.1.2" /> <Badge type="color" text="Latest" color="green" />
+
 PatchFlow CLI is a local-first security scanner for modern engineering teams. It
 performs Software Composition Analysis (SCA), Static Application Security
 Testing (SAST), secret detection, reachability analysis, framework-aware rule
 packs, license scanning, container image scanning, and risk scoring — all from a
 single binary, with no backend connection required for core analysis.
+
+> **New in v0.1.2:** Update check notifications, hardened release pipeline with
+> Cosign signing, and self-hosted CI workflow.
+> [View changelog →](./getting-started/changelog)
 
 ## What PatchFlow Does
 
