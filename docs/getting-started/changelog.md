@@ -10,9 +10,9 @@ All notable changes to PatchFlow CLI will be documented in this page.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [Unreleased]
+## Unreleased
 
-## [0.1.2] - 2025-07-01
+## v0.1.2 — 2025-07-01
 
 ### Added
 - Non-blocking update check notification — PatchFlow now checks for new releases
@@ -65,7 +65,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Hardcoded `/usr/bin/time` path in benchmark now tries PATH first, then
   absolute fallback
 
-## [0.1.1] - 2025-07-01
+## v0.1.1 — 2025-07-01
 
 ### Security
 - Pinned all GitHub Actions to immutable SHA commits (prevents mutable-action
@@ -97,7 +97,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Hardcoded `/usr/bin/time` path in benchmark now tries PATH first, then
   absolute fallback
 
-## [0.1.0] - 2025-06-27
+## v0.1.0 — 2025-06-27
 
 ### Added
 - GoReleaser config with multi-platform builds (linux/darwin/windows,
