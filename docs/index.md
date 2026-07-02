@@ -15,7 +15,7 @@ single binary, with no backend connection required for core analysis.
 
 > **New in v0.1.2:** Update check notifications, hardened release pipeline with
 > Cosign signing, and self-hosted CI workflow.
-> [View changelog →](./getting-started/changelog)
+> [View changelog →](./getting-started/release-notes)
 
 ## What PatchFlow Does
 

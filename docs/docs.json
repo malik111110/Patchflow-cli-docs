@@ -29,7 +29,7 @@
     "prompt": "Search PatchFlow CLI docs..."
   },
   "banner": {
-    "content": "PatchFlow CLI v0.1.2 is here — update check notifications, hardened release pipeline, and self-hosted CI workflow. [View changelog →](/getting-started/changelog)",
+    "content": "PatchFlow CLI v0.1.2 is here — update check notifications, hardened release pipeline, and self-hosted CI workflow. [View changelog →](/getting-started/release-notes)",
     "dismissible": true,
     "type": "info"
   },
@@ -164,7 +164,7 @@
               "getting-started/why-patchflow",
               "getting-started/local-vs-backend",
               "getting-started/common-errors",
-              "getting-started/changelog"
+              "getting-started/release-notes"
             ]
           },
           {
