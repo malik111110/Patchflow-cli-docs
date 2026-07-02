@@ -43,6 +43,7 @@ docs/
 │   ├── teams.md                  Team workflow with phased adoption
 │   └── ci-adoption.md            CI adoption strategy
 ├── integrations/
+│   ├── vscode-extension.md       VS Code / Cursor / Windsurf extension
 │   ├── github-actions.md         GitHub Actions integration
 │   ├── gitlab.md                 GitLab CI integration
 │   ├── sarif.md                  SARIF uploads
