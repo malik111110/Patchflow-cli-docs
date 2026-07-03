@@ -10,7 +10,27 @@ All notable changes to PatchFlow CLI will be documented in this page.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## v0.1.2 - 2025-07-01
+## v0.1.3 - 2026-07-03
+
+### Fixed
+- **Install script PATH handling**: `scripts/install.sh` now verifies the binary
+  after installation and prints clear, copy-pasteable `export PATH` instructions
+  when the install directory is not on `PATH`.
+- **Install script CI/Docker support**: Added `--no-verify` flag and `NO_VERIFY=1`
+  environment variable for unattended installations.
+
+### Added
+- **Containerized install test matrix**: New `tests/install/` with Dockerfiles for
+  Ubuntu (amd64/arm64, root/non-root), Alpine, and optional Linuxbrew. Includes
+  `run-tests.sh` that auto-detects Podman/Docker and validates the install script
+  plus core CLI commands in every container.
+
+### Changed
+- **README installation guidance**: Now recommends the install script for Linux,
+  Docker, and CI environments; notes that the Homebrew tap does not currently
+  publish Linux bottles.
+
+## v0.1.2 - 2026-07-01
 
 ### Added — B11.5: Extension Hardening
 - **Sink scoping by CWE/category**: Custom sinks can be scoped to specific CWEs
@@ -108,7 +128,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Hardcoded `/usr/bin/time` path in benchmark now tries PATH first, then
   absolute fallback
 
-## v0.1.1 - 2025-07-01
+## v0.1.1 - 2026-07-01
 
 ### Security
 - Pinned all GitHub Actions to immutable SHA commits (prevents mutable-action
@@ -140,7 +160,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Hardcoded `/usr/bin/time` path in benchmark now tries PATH first, then
   absolute fallback
 
-## v0.1.0 - 2025-06-27
+## v0.1.0 - 2026-07-01
 
 ### Added
 - GoReleaser config with multi-platform builds (linux/darwin/windows,
@@ -223,7 +243,7 @@ go install github.com/Patchflow-security/patchflow-cli@latest
 ```bash
 git clone https://github.com/Patchflow-security/patchflow-cli.git
 cd patchflow-cli
-git checkout v0.1.2
+git checkout v0.1.3
 go build -o patchflow .
 ```
 
@@ -236,7 +256,7 @@ patchflow version
 Expected output:
 
 ```text
-patchflow version 0.1.2 (commit: abc1234, built: 2025-07-01T12:00:00Z)
+patchflow version 0.1.3 (commit: 85ca3f3, built: 2026-07-03T21:30:00Z)
 ```
 
 ## Next Steps

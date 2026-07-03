@@ -17,7 +17,7 @@ patchflow version
 ```
 
 ```text
-patchflow version 0.1.2 (commit: abc123, built: 2026-07-03T00:00:00Z)
+patchflow version 0.1.3 (commit: 85ca3f3, built: 2026-07-03T21:30:00Z)
 ```
 
 ### JSON output
@@ -28,9 +28,9 @@ patchflow version --json
 
 ```json
 {
-  "version": "0.1.2",
-  "commit": "abc123",
-  "built_at": "2026-07-03T00:00:00Z",
+  "version": "0.1.3",
+  "commit": "85ca3f3",
+  "built_at": "2026-07-03T21:30:00Z",
   "go_version": "go1.26.4",
   "ruleset_version": "framework-rules-v1",
   "schema_version": "1.0",
@@ -43,7 +43,7 @@ patchflow version --json
 
 | Field | Description |
 | --- | --- |
-| `version` | Semantic version (e.g., `0.1.2`) |
+| `version` | Semantic version (e.g., `0.1.3`) |
 | `commit` | Git commit hash at build time |
 | `built_at` | Build timestamp (ISO 8601) |
 | `go_version` | Go runtime version used to build the binary |
@@ -75,7 +75,7 @@ patchflow doctor
 ```text
 PatchFlow Doctor
 ================
-[OK] Version: 0.1.2 (commit: abc123, go: go1.26.4)
+[OK] Version: 0.1.3 (commit: 85ca3f3, go: go1.26.4)
 [OK] Git installed: git version 2.51.2
 [OK] Inside a git repository: /path/to/repo
 [OK] Remote configured: git@github.com:org/repo.git
@@ -114,10 +114,10 @@ patchflow doctor --json
 
 ```json
 {
-  "version": "0.1.2",
-  "commit": "abc123",
+  "version": "0.1.3",
+  "commit": "85ca3f3",
   "go_version": "go1.26.4",
-  "built_at": "2026-07-03T00:00:00Z",
+  "built_at": "2026-07-03T21:30:00Z",
   "status": "ok",
   "is_git_repo": true,
   "git_version": "git version 2.51.2",
