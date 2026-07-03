@@ -61,22 +61,45 @@ Start here:
 6. [Local vs Backend](./getting-started/local-vs-backend) — What data leaves your machine (trust model)
 7. [Common Errors](./getting-started/common-errors) — Troubleshooting guide
 
-## Quick Start
+## Get Started
 
-```bash
-# Install
-go install github.com/Patchflow-security/patchflow-cli@latest
+<Tabs>
+  <Tab title="macOS / Linux">
+    ```bash
+    curl -fsSL https://github.com/Patchflow-security/patchflow-cli/raw/main/scripts/install.sh | bash
+    cd your-repo
+    patchflow init
+    patchflow scan run
+    ```
+  </Tab>
+  <Tab title="Windows">
+    ```powershell
+    scoop bucket add patchflow https://github.com/Patchflow-security/scoop-bucket
+    scoop install patchflow
+    cd your-repo
+    patchflow init
+    patchflow scan run
+    ```
+  </Tab>
+  <Tab title="Docker / Podman">
+    ```bash
+    podman pull ghcr.io/patchflow-security/cli:latest
+    podman run --rm -v "$PWD:/repo" ghcr.io/patchflow-security/cli:latest scan run --path /repo
+    ```
+  </Tab>
+  <Tab title="Build from Source">
+    ```bash
+    git clone https://github.com/Patchflow-security/patchflow-cli.git
+    cd patchflow-cli
+    go build -o patchflow .
+    cd your-repo
+    ./patchflow init
+    ./patchflow scan run
+    ```
+  </Tab>
+</Tabs>
 
-# Initialize in your repository
-cd your-repo
-patchflow init
-
-# Run a full security analysis
-patchflow scan run
-
-# Generate a SARIF report for CI
-patchflow report --format sarif --output patchflow.sarif
-```
+See [Installation](./getting-started/installation) for all methods, including Homebrew, WinGet, and CI setup.
 
 ## Design Principles
 
