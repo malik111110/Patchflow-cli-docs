@@ -61,23 +61,28 @@ auto-detection is too broad or when a pack is not relevant to your project.
 
 | Pack | Language | File Extensions | Template Extensions | Coverage |
 | --- | --- | --- | --- | --- |
-| `rails` | Ruby | `.rb` | `.erb`, `.rhtml`, `.haml`, `.slim` | Controllers, ERB, redirects, SQL, XSS, mass assignment, deserialization |
-| `express` | JavaScript | `.js`, `.mjs`, `.cjs`, `.ts` | `.ejs`, `.hbs`, `.pug` | Request sources, redirects, response XSS, SQL, file access |
-| `nextjs` | JavaScript | `.js`, `.jsx`, `.ts`, `.tsx` | `.jsx`, `.tsx` | Server-side fetch, redirects, JSX XSS |
-| `react` | JavaScript | `.jsx`, `.tsx` | `.jsx`, `.tsx` | JSX XSS, client-side navigation |
-| `spring` | Java | `.java` | `.jsp`, `.jspx`, `.ftl`, `.vm`, `.html`, `.thymeleaf.html` | SQL, SSRF, redirects, XXE, templates, command execution |
-| `spring-security` | Java | `.java` | — | CSRF disabled, public sensitive routes |
-| `aspnet` | C# | `.cs` | `.cshtml`, `.razor` | SQL, redirects, raw HTML responses |
-| `razor` | C# | `.cshtml`, `.razor` | `.cshtml`, `.razor` | Html.Raw, MarkupString |
-| `django` | Python | `.py` | `.html`, `.jinja`, `.jinja2` | SQL, redirects, template safe filter, unsafe deserialization |
-| `laravel` | PHP | `.php` | `.blade.php`, `.twig`, `.phtml` | Raw SQL, redirects, Blade unescaped output, mass assignment |
-| `fastapi` | Python | `.py` | `.html`, `.jinja`, `.jinja2` | Request sources, SQL, redirects, templates |
-| `gin` | JavaScript | `.js`, `.mjs`, `.cjs`, `.ts` | `.html` | Request sources, SQL, redirects, command execution |
-| `flask` | Python | `.py` | `.html`, `.jinja`, `.jinja2` | SQL, redirects, Jinja safe filter, dynamic template strings |
-| `symfony` | PHP | `.php` | `.twig`, `.php` | SQL, redirects, Twig unsafe output |
-| `angular` | TypeScript | `.ts` | `.html` | Template and DOM sink patterns |
-| `nestjs` | TypeScript | `.ts` | — | Controller sources, redirects, command patterns |
-| `echo` | JavaScript | `.js`, `.mjs`, `.cjs`, `.ts` | `.html` | Request sources, redirects, response output |
+| [`rails`](../frameworks/rails) | Ruby | `.rb` | `.erb`, `.rhtml`, `.haml`, `.slim` | Controllers, ERB, redirects, SQL, XSS, mass assignment, deserialization |
+| [`express`](../frameworks/express) | JavaScript | `.js`, `.mjs`, `.cjs`, `.ts` | `.ejs`, `.hbs`, `.pug` | Request sources, redirects, response XSS, SQL, file access |
+| [`nextjs`](../frameworks/nextjs) | JavaScript | `.js`, `.jsx`, `.ts`, `.tsx` | `.jsx`, `.tsx` | Server-side fetch, redirects, JSX XSS |
+| [`react`](../frameworks/react) | JavaScript | `.jsx`, `.tsx` | `.jsx`, `.tsx` | JSX XSS, client-side navigation |
+| [`spring`](../frameworks/spring) | Java | `.java` | `.jsp`, `.jspx`, `.ftl`, `.vm`, `.html`, `.thymeleaf.html` | SQL, SSRF, redirects, XXE, templates, command execution |
+| [`spring-security`](../frameworks/spring-security) | Java | `.java` | — | CSRF disabled, public sensitive routes |
+| [`aspnet`](../frameworks/aspnet) | C# | `.cs` | `.cshtml`, `.razor` | SQL, redirects, raw HTML responses |
+| [`razor`](../frameworks/razor) | C# | `.cshtml`, `.razor` | `.cshtml`, `.razor` | Html.Raw, MarkupString |
+| [`django`](../frameworks/django) | Python | `.py` | `.html`, `.jinja`, `.jinja2` | SQL, redirects, template safe filter, unsafe deserialization |
+| [`laravel`](../frameworks/laravel) | PHP | `.php` | `.blade.php`, `.twig`, `.phtml` | Raw SQL, redirects, Blade unescaped output, mass assignment |
+| [`fastapi`](../frameworks/fastapi) | Python | `.py` | `.html`, `.jinja`, `.jinja2` | Request sources, SQL, redirects, templates |
+| [`gin`](../frameworks/gin) | Go | `.go` | `.tmpl`, `.html` | Request sources, SQL, redirects, command execution |
+| [`flask`](../frameworks/flask) | Python | `.py` | `.html`, `.jinja`, `.jinja2` | SQL, redirects, Jinja safe filter, dynamic template strings |
+| [`symfony`](../frameworks/symfony) | PHP | `.php` | `.twig`, `.php` | SQL, redirects, Twig unsafe output |
+| [`angular`](../frameworks/angular) | TypeScript | `.ts` | `.html` | Template and DOM sink patterns |
+| [`nestjs`](../frameworks/nestjs) | TypeScript | `.ts` | — | Controller sources, redirects, command patterns |
+| [`graphql`](../frameworks/graphql) | Python | `.py` | — | SQLi, SSRF, path traversal, IDOR, DoS |
+| [`echo`](../frameworks/echo) | Go | `.go` | `.html`, `.tmpl` | Request sources, redirects, response output |
+
+> Each pack has a dedicated page with full rule tables, sources, sinks,
+> sanitizers, safe patterns, and code examples. Browse the
+> [Framework Packs index](../frameworks/index) for details.
 
 ## Rule Match Modes
 
@@ -217,6 +222,9 @@ triaged. Keep each override small, named, and reviewed like production code.
 
 ## Next Steps
 
+- [Framework Packs Index](../frameworks/index) — Browse all 18 packs with dedicated pages
+- [Custom Framework Extensions](./custom-framework-extensions) — Extend packs with your own sources, sinks, sanitizers, safe patterns
 - [Custom Rules](./custom-rules) — Full YAML policy reference
+- [CI Templates](./ci-templates) — Generate CI/CD integration templates
 - [Explain](./explain) — Inspect framework rules in detail
 - [Rule Governance](../reference/rules-governance) — Maturity and profiles

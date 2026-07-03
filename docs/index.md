@@ -28,7 +28,7 @@ review command.
 | **SCA** | Parses dependency manifests (Go, npm, PyPI, Maven, RubyGems, Packagist, Cargo, Composer) and queries the OSV.dev vulnerability database. Supports offline mode via a local OSV database. |
 | **SAST** | Embedded scanners (Go AST, multi-language regex, tree-sitter AST, taint analysis) require zero installation. External tools (gosec, bandit, semgrep, gitleaks, checkov) supplement when installed. |
 | **Secrets** | 40+ curated regex patterns for cloud provider keys, VCS tokens, SaaS tokens, private keys, database URLs, JWTs, and high-entropy strings, with false-positive filtering. |
-| **Framework Packs** | Official embedded rule sets for 17 web frameworks: Rails, Express, Next.js, React, Spring, Spring Security, ASP.NET, Razor, Django, Laravel, FastAPI, Gin, Flask, Symfony, Angular, NestJS, and Echo. |
+| **Framework Packs** | Official embedded rule sets for 18 web frameworks: Rails, Express, Next.js, React, Spring, Spring Security, ASP.NET, Razor, Django, Laravel, FastAPI, Gin, Flask, Symfony, Angular, NestJS, GraphQL, and Echo. Each pack has a dedicated page with full rule tables, sources, sinks, sanitizers, and code examples. |
 | **Reachability** | Determines whether vulnerable dependencies are actually imported and used in the codebase, with confidence levels (HIGH, MEDIUM, LOW, NONE, UNKNOWN). |
 | **Risk Scoring** | Computes a 0–100 risk score from findings, change size, sensitivity (auth files, CI workflows, dependency changes), and reachability data. |
 | **Reports** | Generates Markdown, JSON, SARIF 2.1.0, CycloneDX SBOM, SPDX SBOM, VEX, and dependency tree/graph exports. |
@@ -41,7 +41,8 @@ review command.
 
 | Section | Audience | Content |
 | --- | --- | --- |
-| [Getting Started](./getting-started/installation) | All users | Installation, quickstart, core concepts, why PatchFlow, trust model, common errors |
+| [Getting Started](./getting-started/installation) | All users | Installation, quickstart, core concepts, why PatchFlow, vision, trust model, common errors |
+| [Framework Packs](./frameworks/index) | All users | 18 dedicated framework pages with full rule tables, sources, sinks, sanitizers, and code examples |
 | [User Guides](./user-guides/scan) | Developers, security engineers | Detailed command usage for every feature |
 | [Workflows](./workflows/recommended) | Solo devs and teams | Recommended workflows for solo developers and teams, CI adoption |
 | [Integrations](./integrations/github-actions) | CI/CD engineers | GitHub Actions, GitLab CI, SARIF, pre-commit, Jenkins, Azure DevOps |
@@ -53,9 +54,12 @@ review command.
 Start here:
 
 1. [Why PatchFlow](./getting-started/why-patchflow) — Why use PatchFlow instead of stacking Trivy + Semgrep + Gitleaks
-2. [Quickstart](./getting-started/quickstart) — Get running in under 5 minutes
-3. [Local vs Backend](./getting-started/local-vs-backend) — What data leaves your machine (trust model)
-4. [Common Errors](./getting-started/common-errors) — Troubleshooting guide
+2. [The Problem We Solve](./getting-started/vision) — The fragmented security tooling problem and how PatchFlow solves it
+3. [Quickstart](./getting-started/quickstart) — Get running in under 5 minutes
+4. [Framework Packs](./frameworks/index) — Browse all 18 framework packs with dedicated pages
+5. [Custom Framework Extensions](./user-guides/custom-framework-extensions) — Extend packs with your own sources, sinks, sanitizers
+6. [Local vs Backend](./getting-started/local-vs-backend) — What data leaves your machine (trust model)
+7. [Common Errors](./getting-started/common-errors) — Troubleshooting guide
 
 ## Quick Start
 

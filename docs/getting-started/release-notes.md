@@ -12,7 +12,53 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## v0.1.2 - 2025-07-01
 
-### Added
+### Added — B11.5: Extension Hardening
+- **Sink scoping by CWE/category**: Custom sinks can be scoped to specific CWEs
+  (e.g., `CWE-89`) or categories (e.g., `sql_injection`) to prevent cross-rule
+  noise. Unscoped sinks still work (backward compatible) but `rules validate`
+  warns about them.
+- **Source category scoping**: Custom sources can be limited to specific
+  vulnerability categories (e.g., `categories: [sql_injection, path_traversal]`).
+- **Taint safe pattern suppression**: Safe patterns now suppress taint-mode
+  findings when the pattern matches in the same function as the finding.
+- **Config UX cleanup**: Unified `--config` flag for all scan commands.
+  `--rules`, `--rules-config` are now legacy aliases for `--config`.
+- **Strong validation**: `rules validate` now catches duplicate entries, unknown
+  framework names, invalid CWE formats, and missing `schema_version`.
+
+### Added — B12: CLI Release Hardening
+- **Enhanced version command**: `patchflow version --json` now outputs 8 fields:
+  version, commit, built_at, go_version, ruleset_version, schema_version,
+  sarif_version, osv_db_version
+- **Enhanced doctor command**: `patchflow doctor` now checks config file
+  status, cache writability, and SARIF output writability. JSON output
+  includes all fields with overall status.
+- **CI templates**: `patchflow ci init {github,gitlab,circleci,azure,pre-commit}`
+  generates CI/CD integration files with three profiles: audit (non-blocking),
+  starter (high severity blocks), ci-blocking (high+critical block).
+- **Config migration**: `patchflow config migrate` adds `schema_version` and
+  suggests `framework_extensions` equivalents for `framework_overrides`.
+- **Schema versioning**: `schema_version` field added to rules config.
+  `rules validate` warns if missing.
+- **Golden release smoke test**: 5 smoke fixtures (spring, graphql, express,
+  clean-go, clean-python) with `TestReleaseSmoke` in `internal/testdata/`.
+- **RC1 baseline**: `PATCHFLOW_CLI_RC1_BASELINE.md` documenting frozen state.
+
+### Added — B13: Documentation
+- **18 dedicated framework pages**: Each framework pack now has its own page
+  with full rule tables, sources, sinks, sanitizers, safe patterns, and code
+  examples.
+- **Vision page**: "The Problem We Solve" — the fragmented security tooling
+  problem and how PatchFlow solves it.
+- **Custom framework extensions guide**: Detailed guide for extending official
+  packs with organization-specific sources, sinks, sanitizers, and safe patterns.
+- **CI templates guide**: How to use `patchflow ci init` to generate CI/CD
+  integration files.
+- **Version/doctor reference**: Full documentation for `patchflow version --json`
+  and `patchflow doctor --json`.
+- **Schema versioning reference**: Documentation for `schema_version` field.
+
+### Added — v0.1.2 Base
 - Non-blocking update check notification - PatchFlow now checks for new releases
   on startup and prints a banner if a newer version is available
 - GitHub Actions workflow for self-hosted PatchFlow scans

@@ -29,7 +29,7 @@
     "prompt": "Search PatchFlow CLI docs..."
   },
   "banner": {
-    "content": "PatchFlow CLI v0.1.2 is here — update check notifications, hardened release pipeline, and self-hosted CI workflow. [View changelog →](/getting-started/release-notes)",
+    "content": "PatchFlow CLI v0.1.2 — framework-aware SAST with 18 packs, custom extensions, CWE-scoped sinks, and CI templates. [View what's new →](/getting-started/release-notes)",
     "dismissible": true,
     "type": "info"
   },
@@ -162,9 +162,35 @@
               "getting-started/quickstart",
               "getting-started/concepts",
               "getting-started/why-patchflow",
+              "getting-started/vision",
               "getting-started/local-vs-backend",
               "getting-started/common-errors",
               "getting-started/release-notes"
+            ]
+          },
+          {
+            "group": "Framework Packs",
+            "icon": "layers",
+            "pages": [
+              "frameworks/index",
+              "frameworks/spring",
+              "frameworks/spring-security",
+              "frameworks/express",
+              "frameworks/django",
+              "frameworks/flask",
+              "frameworks/fastapi",
+              "frameworks/rails",
+              "frameworks/laravel",
+              "frameworks/symfony",
+              "frameworks/react",
+              "frameworks/nextjs",
+              "frameworks/angular",
+              "frameworks/nestjs",
+              "frameworks/graphql",
+              "frameworks/aspnet",
+              "frameworks/razor",
+              "frameworks/gin",
+              "frameworks/echo"
             ]
           },
           {
@@ -176,6 +202,8 @@
               "user-guides/reachability",
               "user-guides/framework-packs",
               "user-guides/custom-rules",
+              "user-guides/custom-framework-extensions",
+              "user-guides/ci-templates",
               "user-guides/reports",
               "user-guides/baselines",
               "user-guides/pr-review",
@@ -241,7 +269,10 @@
             "pages": [
               "reference/commands",
               "reference/generated-commands",
-              "reference/global-flags"
+              "reference/global-flags",
+              "reference/version-doctor",
+              "reference/ci-init",
+              "reference/config-migrate"
             ]
           },
           {
@@ -249,7 +280,8 @@
             "icon": "settings",
             "pages": [
               "reference/configuration",
-              "reference/yaml-policy"
+              "reference/yaml-policy",
+              "reference/schema-versioning"
             ]
           },
           {
