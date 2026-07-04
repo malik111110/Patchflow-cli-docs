@@ -10,6 +10,57 @@ All notable changes to PatchFlow CLI will be documented in this page.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## v0.1.4 - 2026-07-04
+
+### Added
+- **Embedded OCI Image Scanner**: The image scanner is now embedded directly in the
+  CLI as `internal/imagescan/` — no external Trivy dependency required. Native Go,
+  OCI-first scanner with vulnerability matching (NVD, OSV, Alpine, Debian, Ubuntu).
+- **New scan_image flags**: `--input` (SBOM/tarball input), `--platform`
+  (multi-arch selection), `--no-vulns` (skip vulnerability scan), `--severities`
+  (filter by severity), `--format` (json/sarif/cyclonedx), `--output` (write to file).
+- **Go license detection**: `golang.org/x/*` (googlesource mirror mapping),
+  `gopkg.in/*` (40+ repo mappings), `google.golang.org/*` (protobuf, grpc, etc.),
+  Go module proxy VCS URL fallback.
+- **Maven license detection**: POM file parsing from Maven Central, SCM URL
+  extraction, version resolution via search API (3 query formats), 130+ groupId
+  to GitHub repo mappings.
+- **npm license detection**: Repository URL extraction from registry metadata,
+  full package metadata fallback, homepage URL fallback.
+- **Python license detection**: PyPI classifier-based fallback (40+ mappings),
+  empty version handling, `pyproject.toml` inline table license parsing.
+- **Ruby license detection**: `source_code_uri`/`homepage_uri`/`repository_uri`
+  fallback for GitHub license lookup, version constraint cleanup.
+- **SPDX mapping tables**: Expanded from ~25 to 300+ entries. Added AFL licenses,
+  short GPL forms (GPL-2, GPL-3, GPLV2, etc.), compound license expressions.
+- **PyPI classifier to SPDX map**: 40+ mappings (e.g., "License :: OSI Approved ::
+  MIT License" to "MIT").
+
+### Fixed
+- **License coverage**: 78.2% to 89.6% (+11.4pp) across 10 real-world projects
+  with 3,270+ dependencies. Unknown licenses reduced by 51.8%.
+- **"Other"/"UNKNOWN"/"NOASSERTION" handling**: These placeholder license strings
+  are now treated as uninformative and trigger GitHub fallback lookups.
+- **LGPL misclassification**: Weak copyleft (LGPL) is now checked before strong
+  copyleft (GPL) to fix substring matching (LGPL-2.1 was matching GPL-2).
+- **Python pyproject.toml extras**: `test = ["pytest"]` in
+  `[project.optional-dependencies]` no longer creates a bogus `test` dependency
+  with version `["pytest"]`.
+- **Ruby Gemfile parser**: Fixed parsing of package entries with commas and quotes.
+- **PyPI empty versions**: `pytest@` and similar now use the no-version API endpoint.
+- **RubyGems version constraints**: `~>`, `>=`, etc. are stripped before API lookup.
+- **Image reference validation**: Added security checks for image references.
+
+### Changed
+- `internal/container/scanner.go` rewritten as adapter for the embedded scanner.
+- `cmd/scan_image.go` updated to use the embedded scanner with new flags.
+- `fetchGoModuleLicense` enhanced with googlesource, gopkg.in, and google.golang.org
+  mappings.
+- `fetchMavenLicense` now resolves unknown versions and extracts SCM URLs.
+- `fetchNPMLicense` now extracts repository URLs and falls back to GitHub.
+- `fetchRubyGemsLicense` now cleans version constraints and tries source URIs.
+- `fetchPyPILicense` now handles empty versions and uses classifier fallback.
+
 ## v0.1.3 - 2026-07-03
 
 ### Fixed
