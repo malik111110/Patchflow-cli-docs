@@ -24,6 +24,35 @@ Without extensions, PatchFlow can't track taint through these internal APIs.
 With extensions, PatchFlow understands them exactly like official framework
 APIs — and scopes them by CWE to prevent cross-rule noise.
 
+## Available Framework Packs
+
+Extensions can be added to any of the 18 official framework packs. The framework
+name in your YAML must match the pack name exactly:
+
+| Framework | Pack name | Language |
+| --- | --- | --- |
+| Spring | `spring` | Java |
+| Spring Security | `spring-security` | Java |
+| Express | `express` | JavaScript |
+| React | `react` | JavaScript |
+| Next.js | `nextjs` | JavaScript |
+| Angular | `angular` | TypeScript |
+| NestJS | `nestjs` | TypeScript |
+| Django | `django` | Python |
+| Flask | `flask` | Python |
+| FastAPI | `fastapi` | Python |
+| GraphQL | `graphql` | Python |
+| Rails | `rails` | Ruby |
+| Laravel | `laravel` | PHP |
+| Symfony | `symfony` | PHP |
+| ASP.NET | `aspnet` | C# |
+| Razor | `razor` | C# |
+| Gin | `gin` | Go |
+| Echo | `echo` | Go |
+
+See the [Framework Packs](../frameworks/index) page for the full rule tables,
+sources, sinks, and sanitizers of each pack.
+
 ## Configuration File
 
 Extensions are defined in `.patchflow/rules.yaml`:
@@ -366,6 +395,66 @@ framework_extensions:
     custom_sinks:
       - function: "legacy_cursor.execute"
         cwe: "CWE-89"
+```
+
+### FastAPI with internal auth dependency
+
+```yaml
+schema_version: "1.0"
+framework_extensions:
+  fastapi:
+    custom_sources:
+      - function: "get_tenant_id"
+        categories: [sql_injection, path_traversal]
+    custom_sinks:
+      - function: "legacy_db.execute"
+        cwe: "CWE-89"
+        category: "sql_injection"
+    safe_patterns:
+      - pattern: "require_tenant_scope"
+        reason: "Tenant scope validation before data access"
+```
+
+### Gin with internal SQL wrapper
+
+```yaml
+schema_version: "1.0"
+framework_extensions:
+  gin:
+    custom_sinks:
+      - function: "legacyDB.Query"
+        cwe: "CWE-89"
+        category: "sql_injection"
+    custom_sanitizers:
+      - function: "sanitizeQuery"
+```
+
+### Angular with custom sanitizer
+
+```yaml
+schema_version: "1.0"
+framework_extensions:
+  angular:
+    custom_sanitizers:
+      - function: "CustomSanitizer.sanitize"
+    safe_patterns:
+      - pattern: "validateRouteData"
+        reason: "Custom route data validation before rendering"
+```
+
+### Rails with organization auth helper
+
+```yaml
+schema_version: "1.0"
+framework_extensions:
+  rails:
+    safe_patterns:
+      - pattern: "TenantAuth.require_owner"
+        reason: "Ownership validation by internal auth helper"
+    custom_sinks:
+      - function: "LegacyConnection.execute"
+        cwe: "CWE-89"
+        category: "sql_injection"
 ```
 
 ## Limitations

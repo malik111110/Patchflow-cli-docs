@@ -173,25 +173,7 @@
             "group": "Framework Packs",
             "icon": "layers",
             "pages": [
-              "frameworks/index",
-              "frameworks/spring",
-              "frameworks/spring-security",
-              "frameworks/express",
-              "frameworks/django",
-              "frameworks/flask",
-              "frameworks/fastapi",
-              "frameworks/rails",
-              "frameworks/laravel",
-              "frameworks/symfony",
-              "frameworks/react",
-              "frameworks/nextjs",
-              "frameworks/angular",
-              "frameworks/nestjs",
-              "frameworks/graphql",
-              "frameworks/aspnet",
-              "frameworks/razor",
-              "frameworks/gin",
-              "frameworks/echo"
+              "frameworks/index"
             ]
           },
           {

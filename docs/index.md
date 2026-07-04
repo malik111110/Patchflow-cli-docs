@@ -100,7 +100,7 @@ the embedded scanners when available.
 | Section | What's in it |
 | --- | --- |
 | [Getting Started](./getting-started/overview) | Overview, installation, quickstart, concepts, why, vision, errors |
-| [Framework Packs](./frameworks/index) | 18 framework pages with full rule tables and code examples |
+| [Framework Packs](./frameworks/index) | All 18 framework packs with full rule tables, sources, sinks, and sanitizers |
 | [User Guides](./user-guides/scan) | Detailed command usage for every feature |
 | [Workflows](./workflows/recommended) | Recommended workflows for solo devs and teams |
 | [Integrations](./integrations/github-actions) | GitHub Actions, GitLab, SARIF, pre-commit, Jenkins, Azure DevOps |
