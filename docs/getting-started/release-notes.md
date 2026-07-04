@@ -10,6 +10,30 @@ All notable changes to PatchFlow CLI will be documented in this page.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## v0.1.5 - 2026-07-04
+
+### Added
+- **LICENSE file crawling**: When all registry API lookups fail or return
+  NOASSERTION/Other/UNKNOWN, the CLI now fetches the raw LICENSE file directly
+  from the source repository via `raw.githubusercontent.com`. Tries multiple
+  file names (LICENSE, LICENSE.md, COPYING, UNLICENSE, NOTICE) and multiple
+  branches (main, master, HEAD, develop, trunk).
+- **Text-based license detection**: New `internal/licensedetect` package that
+  identifies licenses from file content using n-gram similarity matching
+  (Dice's coefficient). Supports 35+ license types (MIT, Apache-2.0, BSD,
+  GPL, LGPL, AGPL, MPL, EPL, ISC, Unlicense, BSL, CC0, Zlib, and more).
+- **PyPI repository URL extraction**: Extracts GitHub repo URL from PyPI
+  `project_urls` (Homepage, Source, Repository) when license is missing.
+- **RubyGems repository URL extraction**: Extracts GitHub repo URL from
+  `source_code_uri`, `homepage_uri`, `repository_uri` when license is missing.
+- **GitHub API LICENSE crawl fallback**: When the GitHub API returns
+  NOASSERTION, falls back to fetching and analyzing the raw LICENSE file.
+
+### Fixed
+- **License coverage**: 89.6% to 95.6% (+6.0pp) across 10 real-world projects.
+  Unknown licenses reduced by 55.8% (353 to 156). Total improvement from
+  original: 78.2% to 95.6% (+17.4pp), unknowns reduced by 78.7%.
+
 ## v0.1.4 - 2026-07-04
 
 ### Added
