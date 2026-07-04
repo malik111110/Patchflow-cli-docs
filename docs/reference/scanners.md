@@ -240,7 +240,7 @@ optional and run automatically when detected on `PATH`.
 | `bandit` | Python | Python security linting | N/A (external) |
 | `semgrep` | Multi-language | Pattern-based SAST | N/A (external) |
 | `gitleaks` | Secrets | Secret detection | N/A (external) |
-| `trivy` | Containers, IaC | Container image and IaC scanning | N/A (external) |
+| `trivy` | Containers, IaC | Container image and IaC scanning (supplementary — embedded OCI scanner is primary) | N/A (external) |
 | `checkov` | IaC | Infrastructure-as-code scanning | N/A (external) |
 
 External tool findings are merged with embedded scanner findings and

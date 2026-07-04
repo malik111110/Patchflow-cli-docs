@@ -37,7 +37,7 @@ PatchFlow CLI is a **single binary** that replaces the stack:
 
 | Instead of | PatchFlow does |
 | --- | --- |
-| Trivy (SCA) | Embedded OSV.dev query with offline DB support |
+| Trivy (SCA + containers) | Embedded OSV.dev query with offline DB + embedded OCI image scanner |
 | Semgrep (SAST) | 822 embedded rules across 24 scanners + 18 framework packs |
 | gosec / bandit | Go AST + tree-sitter multi-language analysis |
 | gitleaks | 40+ curated secret patterns with false-positive filtering |

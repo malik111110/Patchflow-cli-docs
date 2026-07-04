@@ -183,6 +183,24 @@ patchflow review status JOB_ID --watch
 These commands require authentication (`patchflow login`) and a backend
 connection. See [Authentication](./authentication).
 
+### Submitting PR Review Results Directly
+
+You can also submit `pr-review` results directly to the PatchFlow backend
+using the `--submit` flag:
+
+```bash
+patchflow pr-review --json --submit \
+  --project-id 42 \
+  --repository owner/repo \
+  --pr-number 123 \
+  --pr-title "Add login feature" \
+  --pr-author alice \
+  --pr-url https://github.com/owner/repo/pull/123
+```
+
+This posts the pr-review JSON to `POST /api/v1/cli/pr-review-results`.
+Requires authentication (`patchflow login`) and a configured backend URL.
+
 ## Next Steps
 
 - [Fixes](./fixes) — Apply fix proposals

@@ -35,7 +35,7 @@ review command.
 | **Reports** | Generates Markdown, JSON, SARIF 2.1.0, CycloneDX SBOM, SPDX SBOM, VEX, and dependency tree/graph exports. |
 | **Baselines** | Snapshots known findings so CI can focus on new issues, using stable semantic fingerprints that survive line-number shifts. |
 | **Fixes** | Generates and applies safe fix proposals for common vulnerability patterns (eval, SQL injection, command injection, weak crypto, hardcoded secrets, TLS, path traversal). |
-| **Container Scanning** | Scans container images for OS package and language dependency vulnerabilities via Trivy integration. |
+| **Container Scanning** | Scans container images for OS package and language dependency vulnerabilities via the embedded OCI image scanner (no external tools required). |
 | **PR Review** | Simulates a pre-PR risk review locally, with reviewer suggestions, inline annotations, and fix proposals. |
 
 ## Documentation Sections

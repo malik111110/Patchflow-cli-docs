@@ -81,7 +81,7 @@ And none of them provide:
 | Reachability analysis | Yes | No | No | No | No |
 | License scanning | Yes | Yes | No | No | No |
 | Framework-aware rules | Yes (17 packs) | No | Limited | No | No |
-| Container image scanning | Yes (via Trivy) | Yes | No | No | No |
+| Container image scanning | Yes (embedded OCI scanner) | Yes | No | No | No |
 | Unified risk score | Yes | No | No | No | No |
 | Baseline comparison | Yes | No | No | No | No |
 | Fix suggestions | Yes | No | Limited | No | No |
@@ -190,7 +190,7 @@ PatchFlow does not replace every tool in every scenario:
 
 | Scenario | Tool | Why |
 | --- | --- | --- |
-| Container image scanning | Trivy (directly) | PatchFlow wraps Trivy for image scanning, but if you only need container scans, Trivy alone is simpler |
+| Container image scanning | Trivy (directly) | PatchFlow's embedded OCI scanner covers the common case; Trivy may have deeper coverage for edge-case images |
 | Custom SAST rules (complex) | Semgrep | Semgrep's rule language is more expressive for highly custom rules. PatchFlow's custom rules are regex-based |
 | IaC scanning (detailed) | Checkov | Checkov has deeper IaC policy coverage. PatchFlow covers basic IaC patterns |
 | Dependency scanning only | OSV-Scanner | If you only need SCA, OSV-Scanner is lighter |

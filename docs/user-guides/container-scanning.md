@@ -10,19 +10,15 @@ vulnerabilities, language dependency vulnerabilities, and misconfigurations.
 
 ## Prerequisites
 
-Container scanning uses [Trivy](https://trivy.dev) as an external analyzer.
-Trivy must be installed and available on your `PATH`:
+Container scanning uses the embedded OCI image scanner (`internal/imagescan/`).
+No external tools are required — the scanner is built into the PatchFlow CLI
+binary and performs vulnerability matching against NVD, OSV, Alpine, Debian,
+and Ubuntu advisory databases.
 
-```bash
-# macOS
-brew install trivy
-
-# Linux
-curl -sfL https://raw.githubusercontent.com/aquasecurity/trivy/main/contrib/install.sh | sh
-
-# Verify
-trivy --version
-```
+> **Note**: Prior to v0.1.4, container scanning required [Trivy](https://trivy.dev)
+> as an external dependency. The embedded scanner replaces this requirement.
+> Trivy remains supported as an optional external analyzer when available on
+> `PATH` (the CLI auto-detects it for supplementary coverage).
 
 ## Basic Usage
 

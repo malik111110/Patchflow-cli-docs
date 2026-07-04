@@ -432,7 +432,8 @@ patchflow scan export --format dep-dot
 ### `patchflow scan image`
 
 Scans a container image for OS package and language dependency vulnerabilities.
-Uses Trivy as an external analyzer (must be installed).
+Uses the embedded OCI image scanner (no external tools required). Trivy is
+used as a supplementary external analyzer when available on `PATH`.
 
 ```bash
 patchflow scan image nginx:1.21
@@ -450,6 +451,23 @@ patchflow scan image alpine:3.18 --timeout 5m --severities CRITICAL,HIGH
 | `--severities` | string | (all) | Comma-separated: `CRITICAL,HIGH,MEDIUM,LOW,INFO` |
 
 See [Container Scanning](./container-scanning) for details.
+
+## Submitting Results to the Backend
+
+```bash
+patchflow scan run --json --submit --project-id 42
+```
+
+Submits the scan results to the PatchFlow backend's ingestion endpoint
+(`POST /api/v1/cli/scan-results`). Requires authentication
+(`patchflow login --token <jwt>`) and the backend URL to be configured
+(`--api-url` or `patchflow config set apiurl`).
+
+The `--project-id` flag specifies which project the scan results belong to.
+If the submission fails, the local scan results are still valid — the error
+is printed but does not affect the exit code.
+
+See [Authentication](./authentication) for setting up backend credentials.
 
 ## Next Steps
 

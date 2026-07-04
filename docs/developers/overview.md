@@ -84,11 +84,12 @@ contributors.
 | `internal/manifest/` | Dependency manifest parsing |
 | `internal/osv/` | OSV.dev API client |
 | `internal/registry/` | Package registry metadata (licenses) |
-| `internal/container/` | Container image scanning (Trivy wrapper) |
+| `internal/container/` | Container image scanning (embedded OCI scanner; Trivy optional) |
+| `internal/imagescan/` | Embedded OCI image scanner — native Go, NVD/OSV/Alpine/Debian/Ubuntu matching |
 | `internal/pr/` | PR diff parsing and finding placement |
 | `internal/reviewers/` | Reviewer suggestions (CODEOWNERS, git blame) |
 | `internal/review/` | Review context collection |
-| `internal/api/` | PatchFlow API client (review submission) |
+| `internal/api/` | PatchFlow API client (review + scan-results + pr-review-results submission) |
 | `internal/doctor/` | Environment diagnostics |
 | `internal/templates/` | CI/CD template generation |
 | `internal/analysis/` | Core types (Finding, Severity, ReachabilityStatus) |

@@ -371,8 +371,8 @@ External tools (gosec, semgrep, bandit, gitleaks, trivy) are not on your `PATH`.
 
 ### Solution
 
-External tools are optional. PatchFlow's embedded scanners work without them.
-To install them for additional coverage:
+External tools are optional. PatchFlow's embedded scanners (including the OCI
+image scanner) work without them. To install them for supplementary coverage:
 
 ```bash
 # gosec
@@ -388,7 +388,7 @@ pip install bandit
 brew install gitleaks  # macOS
 # or: go install github.com/gitleaks/gitleaks/v8@latest
 
-# trivy
+# trivy (optional — embedded OCI scanner handles container scanning by default)
 brew install trivy  # macOS
 ```
 

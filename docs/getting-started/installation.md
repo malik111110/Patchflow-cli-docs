@@ -189,7 +189,7 @@ PatchFlow's embedded scanners require no installation. The following external to
 | `bandit` | Python | Python security linting | `pip install bandit` |
 | `semgrep` | Multi-language | Pattern-based SAST | `pip install semgrep` or `brew install semgrep` |
 | `gitleaks` | Secrets | Secret detection | `brew install gitleaks` |
-| `trivy` | Containers, IaC | Container image and IaC scanning | `brew install trivy` |
+| `trivy` | Containers, IaC | Supplementary container/IaC scanning (embedded OCI scanner is primary) | `brew install trivy` |
 | `checkov` | IaC | Infrastructure-as-code scanning | `pip install checkov` |
 
 External tools run automatically when detected on `PATH`. Use `patchflow doctor` to see which tools are available in your environment.

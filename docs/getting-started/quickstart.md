@@ -414,7 +414,7 @@ External tools:
   semgrep:  not installed (optional)
   bandit:   not installed (optional)
   gitleaks: not installed (optional)
-  trivy:    not installed (optional)
+  trivy:    not installed (optional, embedded OCI scanner is primary)
 
 Cache:            ~/.cache/patchflow/a1b2c3d4e5f6a7b8/
 OSV database:     not downloaded (run 'patchflow cache update' for offline mode)
