@@ -158,6 +158,7 @@
             "group": "Getting Started",
             "icon": "rocket",
             "pages": [
+              "getting-started/overview",
               "getting-started/installation",
               "getting-started/quickstart",
               "getting-started/concepts",
